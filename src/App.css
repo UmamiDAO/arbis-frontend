@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+.ant-menu-item-active { 
+	border-bottom: 2px solid transparent !important; 
+	color: #db282e !important; 
+}
+
+.ant-menu-item-a-hover {
+	color: #db282e !important;
+}

@@ -1,0 +1,22 @@
+.ant-page-header-heading-left {
+  font-family: 'Sanchez';
+}
+
+.ant-page-header-heading {
+  margin-bottom: -40px !important;
+}
+
+.ant-page-header-heading-sub-title {
+  font-family: 'Sanchez';
+  color: #d8121b !important;
+  font-size: 1.25rem !important;
+}
+
+.ant-avatar {
+	width: 100px !important;
+	height: 75px !important;
+}
+
+.ant-layout-content {
+	padding-top: 15px !important;
+}
