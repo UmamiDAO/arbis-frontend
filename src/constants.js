@@ -233,6 +233,7 @@ import SWPRETHStrategy2Address from "./contracts/SWPRETHStrategy2.address";
 import DPXStrategyAddress from "./contracts/DPXStrategy.address";
 import MaticTOWERUSDCStrategy from "./contracts/MaticTOWERUSDCStrategy.address";
 import MaticIVORYUSDCStrategyAddress from "./contracts/MaticIVORYUSDCStrategy.address";
+import ARBISETHStrategy4Address from "./contracts/ARBISETHStrategy4.address";
 
 export const STAKING_POOL_ADDRESSES = Object.freeze({
   NYAN: NyanStakingPoolAddress,
@@ -374,6 +375,16 @@ export const legacyFarms = [
   id: FARMS.ARBISETH2,
   name: "ARBIS/ETH old",
   farmAddress: ARBISETHStrategy3Address,
+  specialWarning: "The Farm for this pool has ended",
+  hideDeposit: true,
+  hint: <>Get this LP token on <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
+},
+,
+
+{
+  id: FARMS.ARBISETH2,
+  name: "ARBIS/ETH (epoch 2)",
+  farmAddress: ARBISETHStrategy4Address,
   specialWarning: "The Farm for this pool has ended",
   hideDeposit: true,
   hint: <>Get this LP token on <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>

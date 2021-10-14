@@ -511,16 +511,7 @@ function App(props) {
             </Link>
           </Menu.Item>
 
-          <Menu.Item key="/tower-farms">
-            <Link
-              onClick={() => {
-                setRoute("/tower-farms");
-              }}
-              to="/tower-farms"
-            >
-              TOWER Farms
-            </Link>
-          </Menu.Item>
+         
           <Menu.Item key="/legacy-farms">
             <Link
               className="legacy-farm"
@@ -638,25 +629,7 @@ function App(props) {
               farmsURL={"https://app.sushi.com/farm"}
             />
           </Route>
-          <Route path="/tower-farms">
-            <RelatedLPFarms
-              address={address}
-              userSigner={userSigner}
-              mainnetProvider={mainnetProvider}
-              localProvider={localProvider}
-              yourLocalBalance={yourLocalBalance}
-              price={ethUSDPrice}
-              tx={tx}
-              writeContracts={writeContracts}
-              readContracts={readContracts}
-              purpose={purpose}
-              setPurposeEvents={setPurposeEvents}
-              injectedProvider={injectedProvider}
-              farms={towerFarms}
-              pageName={"Tower Farms"}
-              farmsURL={"https://towerfinance.io"}
-            />
-          </Route>
+        
         
           <Route path="/legacy-farms">
             <LegacyFarms

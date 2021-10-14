@@ -20,6 +20,7 @@ import ARBISETHStrategy4Address from "../contracts/ARBISETHStrategy4.address";
 import ARBISETHSwaprZapperAddress from "../contracts/ARBISETHSwaprZapper.address";
 import SPELLETHArbisRewardsAddress from "../contracts/SPELLETHArbisRewards.address";
 import MIMETHArbisRewardsAddress from "../contracts/MIMETHArbisRewards.address";
+import ARBISETHStrategy5Address from "../contracts/ARBISETHStrategy5.address";
 
 
 
@@ -42,16 +43,17 @@ export default function ArbisFarms({
         { id: "stARBIS",
         farmAddress: StArbisAddress2 },
        
-      
+        
 
+       
         {
-            id: "ARBIS/ETH",
-            name: "ARBIS/ETH",
-            address: ARBISETHStrategy4Address,/* zapper is not working
+            id: "ARBIS/ETH (epoch 3)",
+            name: "ARBIS/ETH (epoch 3)",
+            address: ARBISETHStrategy5Address,/* zapper is not working
             zapperAddress: ARBISETHSwaprZapperAddress, */
             specialWarning: "",
             hideDeposit: false,
-            hint: <>The zapper will be online soon, until then you can manually get the LP token on: <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
+            hint: <>This is the autocompounder for Epoch 3. If you dont see your liquidity its probably in the old one which is now in Legacy Farms tab. you can manually get the LP token on: <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
         },
 
         {
