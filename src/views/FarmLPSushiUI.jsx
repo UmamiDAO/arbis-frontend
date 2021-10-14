@@ -242,6 +242,8 @@ export default function FarmLPSushiUI(props) {
           <ArbiSpinner />
           {injectedProvider == undefined ?
             <h4>Connect your wallet on the Arbitrum Network</h4> : ""}
+
+{specialWarning ? (<p className="special-warning">{specialWarning}</p>) : ""}
         </div>
       ) : (
         <div>

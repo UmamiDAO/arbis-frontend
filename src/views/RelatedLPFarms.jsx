@@ -53,6 +53,7 @@ export default function RelatedLPFarms({
         tx={tx}
         farmAddress={farms[farm].address}
         farmName={farms[farm].name}
+        specialWarning={farms[farm].specialWarning}
       />;
     } else {
       return <p>Interface resetting<br /><ArbiSpinner /></p>

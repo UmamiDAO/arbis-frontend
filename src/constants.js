@@ -202,7 +202,9 @@ export const FARMS = Object.freeze({
   ARBISETH1: "ARBISETH1(Inactive)",
   ARBISETH2: "ARBISETH2(Inactive)",
   PPEGGFARMS: "Parrot Defi farms",
-  DPX: "Dopex"
+  DPX: "Dopex",
+  IVORYUSDC: "ivory/usdc",
+  TOWERUSDC: "tower/usdc"
 });
 
 import NyanStakingPoolAddress from "./contracts/NyanStakingPool.address";
@@ -229,6 +231,8 @@ import ARBISETHStrategy3Address from "./contracts/ARBISETHStrategy3.address";
 import MagicUSDCStrategyAddress from "./contracts/MagicUSDCStrategy.address";
 import SWPRETHStrategy2Address from "./contracts/SWPRETHStrategy2.address";
 import DPXStrategyAddress from "./contracts/DPXStrategy.address";
+import MaticTOWERUSDCStrategy from "./contracts/MaticTOWERUSDCStrategy.address";
+import MaticIVORYUSDCStrategyAddress from "./contracts/MaticIVORYUSDCStrategy.address";
 
 export const STAKING_POOL_ADDRESSES = Object.freeze({
   NYAN: NyanStakingPoolAddress,
@@ -287,16 +291,31 @@ export const sushiFarms = [
   },{
     id: FARMS.MIMETH2,
     name: "MIM-ETH Strategy2",
-    address: MIMETHStrategy2Address
+    address: MIMETHStrategy2Address,
+    specialWarning: "Users Compounding this farm only earn SUSHI and does not earn SPELL. SPELL is recompounded for depositors"
   },
   ,{
     id: FARMS.SPELLETH,
     name: "SPELL-ETH Strategy",
     address: SPELLETHStrategyAddress
-  },
+  }
  
 ]
 
+export const towerFarms = [
+  {
+    id: FARMS.TOWERUSDC,
+    name: "TOWER-USDC Strategy",
+    address: MaticTOWERUSDCStrategy,
+    specialWarning: "This Farm only works on the matic/polygon network"
+  },{
+    id: FARMS.IVORYUSDC,
+    name: "IVORY-USDC Strategy",
+    address: MaticIVORYUSDCStrategyAddress,
+    specialWarning: "This Farm only works on the matic/polygon network"
+  },
+ 
+]
 export const legacyFarms = [
   {
     id: FARMS.CARBON,

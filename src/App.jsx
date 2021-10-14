@@ -8,7 +8,7 @@ import { BrowserRouter, HashRouter, Link, Route, Switch } from "react-router-dom
 import Web3Modal from "web3modal";
 import "./App.css";
 import { Account, Contract, Faucet, GasGauge, Header, Ramp, ThemeSwitch } from "./components";
-import { INFURA_ID, NETWORK, NETWORKS, FARMS, STAKING_POOL_ADDRESSES, legacyFarms, sushiFarms, swaprFarms, peggFarms, dopexFarms } from "./constants";
+import { INFURA_ID, NETWORK, NETWORKS, FARMS, STAKING_POOL_ADDRESSES, legacyFarms, sushiFarms, swaprFarms, peggFarms, dopexFarms, towerFarms } from "./constants";
 import { Transactor } from "./helpers";
 import {
   useBalance,
@@ -64,7 +64,7 @@ import ArbisFarms from "./views/ArbisFarms";
 */
 
 /// 📡 What chain are your contracts deployed to?
-const targetNetwork = NETWORKS.arbitrum; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
+const targetNetwork = NETWORKS.matic; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
 const DEBUG = true;
@@ -511,7 +511,16 @@ function App(props) {
             </Link>
           </Menu.Item>
 
-
+          <Menu.Item key="/tower-farms">
+            <Link
+              onClick={() => {
+                setRoute("/tower-farms");
+              }}
+              to="/tower-farms"
+            >
+              TOWER Farms
+            </Link>
+          </Menu.Item>
           <Menu.Item key="/legacy-farms">
             <Link
               className="legacy-farm"
@@ -629,6 +638,26 @@ function App(props) {
               farmsURL={"https://app.sushi.com/farm"}
             />
           </Route>
+          <Route path="/tower-farms">
+            <RelatedLPFarms
+              address={address}
+              userSigner={userSigner}
+              mainnetProvider={mainnetProvider}
+              localProvider={localProvider}
+              yourLocalBalance={yourLocalBalance}
+              price={ethUSDPrice}
+              tx={tx}
+              writeContracts={writeContracts}
+              readContracts={readContracts}
+              purpose={purpose}
+              setPurposeEvents={setPurposeEvents}
+              injectedProvider={injectedProvider}
+              farms={towerFarms}
+              pageName={"Tower Farms"}
+              farmsURL={"https://towerfinance.io"}
+            />
+          </Route>
+        
           <Route path="/legacy-farms">
             <LegacyFarms
               address={address}
