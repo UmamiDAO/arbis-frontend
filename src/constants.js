@@ -235,6 +235,7 @@ import DPXStrategyAddress from "./contracts/DPXStrategy.address";
 import MaticTOWERUSDCStrategy from "./contracts/MaticTOWERUSDCStrategy.address";
 import MaticIVORYUSDCStrategyAddress from "./contracts/MaticIVORYUSDCStrategy.address";
 import ARBISETHStrategy4Address from "./contracts/ARBISETHStrategy4.address";
+import SWPRETHStrategy3Address from "./contracts/SWPRETHStrategy3.address";
 
 export const STAKING_POOL_ADDRESSES = Object.freeze({
   NYAN: NyanStakingPoolAddress,
@@ -261,9 +262,15 @@ export const swaprFarms = [
     specialWarning: "This farm is now complete, migrate to the new one to continue earning rewards"
   },
   {
-    id: FARMS.SWPRETH2,
+    id: FARMS.SWPRETH,
     name: "SWPR-ETH Strategy Epoch 2",
     address: SWPRETHStrategy2Address
+  }
+  ,
+  {
+    id: FARMS.SWPRETH2,
+    name: "SWPR-ETH Strategy Epoch 3",
+    address: SWPRETHStrategy3Address
   }
 ]
 
