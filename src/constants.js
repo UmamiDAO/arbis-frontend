@@ -201,6 +201,7 @@ export const FARMS = Object.freeze({
   STARBISOLD: "stARBIS(Inactive)",
   ARBISETH1: "ARBISETH1(Inactive)",
   ARBISETH2: "ARBISETH2(Inactive)",
+  ARBISETH3: "ARBIS/ETH (epoch 2)",
   PPEGGFARMS: "Parrot Defi farms",
   DPX: "Dopex",
   IVORYUSDC: "ivory/usdc",
@@ -382,7 +383,7 @@ export const legacyFarms = [
 ,
 
 {
-  id: FARMS.ARBISETH2,
+  id: FARMS.ARBISETH3,
   name: "ARBIS/ETH (epoch 2)",
   farmAddress: ARBISETHStrategy4Address,
   specialWarning: "The Farm for this pool has ended",
