@@ -26,8 +26,10 @@ import { SyncOutlined, UploadOutlined } from "@ant-design/icons";
 import { Address, Balance, EtherInput, AddressInput, Hint, RelationToNow } from "../components";
 import { parseEther, formatEther } from "@ethersproject/units";
 import { Alert } from "antd";
-import { ipfs, ipfsLinkFromHash, relationToNow, truncateString } from "../helpers";
+import { ipfs, ipfsLinkFromHash, relationToNow, truncateString, numberWithCommas } from "../helpers";
 import { useExternalContractLoader, useContractReader, useBalance } from "../hooks";
+import FetchHorsey from '../hooks/FetchHorsey.js'
+
 
 import { useParams } from "react-router-dom";
 import { create as createIPFSClient } from "ipfs-http-client";
@@ -88,6 +90,26 @@ export default function FarmLPSushiUI(props) {
 
   const rewardTokenInstance = useExternalContractLoader(injectedProvider, rewardTokenAddress, ERC20Abi);
   const rewardTokenSymbol = useContractReader({ ERC20: rewardTokenInstance }, "ERC20", "symbol", []);
+
+  /* https://gist.github.com/sterlu/4b44f59ea665819974ae684d7f564d9b */
+  const aprToApy = (interest, frequency = 365) => ((1 + (interest / 100) / frequency) ** frequency - 1) * 100;
+  
+  let horseyData = {}
+  let apr = "";
+  let tradingAPR = "";
+  let totalValueStaked = "";
+  let underlyingTokenPrice = "";
+  let combinedAPR = 0;
+
+    try {
+  horseyData = FetchHorsey(farmAddress);
+  apr = horseyData.apr;
+  tradingAPR = horseyData.tradingAPR;
+  totalValueStaked = horseyData.totalValueStaked;
+  underlyingTokenPrice = horseyData.underlyingTokenPrice;
+  combinedAPR = aprToApy(parseFloat(apr)+parseFloat(tradingAPR)).toFixed(2);
+  } catch(error) {console.log('Horsey error ',error)}
+
 
 
   console.log(`underlying name share ${name} ${underlyingName}, approval ${approved}`);
@@ -247,17 +269,22 @@ export default function FarmLPSushiUI(props) {
         <div>
           <Layout>
             <Content className="farm">
+              
               <h1>{farmName}</h1>
               <a href={`https://arbiscan.io/address/${farmAddress}`} target="_blank" rel="noopener noreferrer">
                 {" "}
                 <Hint hint={<>{truncateString(`${farmAddress}`, 8)}</>} />
               </a>
+              { !!combinedAPR &&  (
+                  <h2>APY: {numberWithCommas(combinedAPR)}%</h2> )}
+              
+
               {specialWarning ? (<p className="special-warning">{specialWarning}</p>) : ""}
               {hint ? (<Hint hint={hint} />) : ""}
 
-              Stake your {underlyingName ? underlyingName : ""} ({showSymbol()}) Tokens for {showShareSymbol() ? showShareSymbol() : ""} in Arbi to let them compound automatically!
+              Stake your {underlyingName ? underlyingName : ""} ({showSymbol()}) Tokens for {showShareSymbol() ? showShareSymbol() : ""} çin Arbi to let them compound automatically!
               <p className="tvl">
-                <b>TVL:</b> {parseFloat(formatEther(totalDeposits ? totalDeposits : "0")).toFixed(3)} {showSymbol()}
+                <b>TVL:</b> {parseFloat(formatEther(totalDeposits ? totalDeposits : "0")).toFixed(3)} {showSymbol()} {!!totalValueStaked && (<span>${numberWithCommas(totalValueStaked)}</span>)}
                 <br />
                 <b>1 {showShareSymbol()}:</b> {parseFloat(formatEther(underlyingTokensPerShare ? underlyingTokensPerShare : "0")).toFixed(3)} {showSymbol()}
               </p>
