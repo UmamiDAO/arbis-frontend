@@ -282,7 +282,7 @@ export default function FarmLPSushiUI(props) {
               {specialWarning ? (<p className="special-warning">{specialWarning}</p>) : ""}
               {hint ? (<Hint hint={hint} />) : ""}
 
-              Stake your {underlyingName ? underlyingName : ""} ({showSymbol()}) Tokens for {showShareSymbol() ? showShareSymbol() : ""} çin Arbi to let them compound automatically!
+              Stake your {underlyingName ? underlyingName : ""} ({showSymbol()}) Tokens for {showShareSymbol() ? showShareSymbol() : ""} in Arbi to let them compound automatically!
               <p className="tvl">
                 <b>TVL:</b> {parseFloat(formatEther(totalDeposits ? totalDeposits : "0")).toFixed(3)} {showSymbol()} {!!totalValueStaked && (<span>${numberWithCommas(totalValueStaked)}</span>)}
                 <br />
