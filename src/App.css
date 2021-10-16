@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  float: center;
 }
 
 .ant-menu-item-active { 
@@ -9,4 +10,13 @@
 
 .ant-menu-item-a-hover {
 	color: #db282e !important;
+}
+
+.tvl-center {
+	padding-left:92px
+}
+.price-right {
+	text-align:right;
+	float: right;
+	padding-right: 10px;
 }

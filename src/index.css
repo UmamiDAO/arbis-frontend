@@ -62,7 +62,8 @@ code {
 .farm {
   max-width: 400px;
   margin: auto;
-  text-align: justify;
+  /* text-align: justify; */
+  text-align: left;
 }
 .farm h1 {
   display: inline-block;
