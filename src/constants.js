@@ -206,7 +206,8 @@ export const FARMS = Object.freeze({
   DPX: "Dopex",
   IVORYUSDC: "ivory/usdc",
   TOWERUSDC: "tower/usdc",
-  HONEYETH: "honey/eth"
+  HONEYETH: "honey/eth",
+  HONEYUSDC: "honey/usdc"
 });
 
 import NyanStakingPoolAddress from "./contracts/NyanStakingPool.address";
@@ -238,6 +239,7 @@ import MaticIVORYUSDCStrategyAddress from "./contracts/MaticIVORYUSDCStrategy.ad
 import ARBISETHStrategy4Address from "./contracts/ARBISETHStrategy4.address";
 import SWPRETHStrategy3Address from "./contracts/SWPRETHStrategy3.address";
 import HONEYETHStrategyAddress from "./contracts/HONEYETHStrategy.address";
+import HoneyUSDCStrategyAddress from "./contracts/HoneyUSDCStrategy.address";
 
 export const STAKING_POOL_ADDRESSES = Object.freeze({
   NYAN: NyanStakingPoolAddress,
@@ -318,6 +320,11 @@ export const honeyFarms = [
     id: FARMS.HONEYETH,
     name: "HONEY-ETH Strategy",
     address: HONEYETHStrategyAddress
+  },
+  {
+    id: FARMS.HONEYUSDC,
+    name: "HONEY-USDC Strategy",
+    address: HoneyUSDCStrategyAddress
   }
 ]
 
