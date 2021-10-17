@@ -205,7 +205,8 @@ export const FARMS = Object.freeze({
   PPEGGFARMS: "Parrot Defi farms",
   DPX: "Dopex",
   IVORYUSDC: "ivory/usdc",
-  TOWERUSDC: "tower/usdc"
+  TOWERUSDC: "tower/usdc",
+  HONEYETH: "honey/eth"
 });
 
 import NyanStakingPoolAddress from "./contracts/NyanStakingPool.address";
@@ -236,6 +237,7 @@ import MaticTOWERUSDCStrategy from "./contracts/MaticTOWERUSDCStrategy.address";
 import MaticIVORYUSDCStrategyAddress from "./contracts/MaticIVORYUSDCStrategy.address";
 import ARBISETHStrategy4Address from "./contracts/ARBISETHStrategy4.address";
 import SWPRETHStrategy3Address from "./contracts/SWPRETHStrategy3.address";
+import HONEYETHStrategyAddress from "./contracts/HONEYETHStrategy.address";
 
 export const STAKING_POOL_ADDRESSES = Object.freeze({
   NYAN: NyanStakingPoolAddress,
@@ -309,6 +311,14 @@ export const sushiFarms = [
     address: SPELLETHStrategyAddress
   }
  
+]
+
+export const honeyFarms = [
+  {
+    id: FARMS.HONEYETH,
+    name: "HONEY-ETH Strategy",
+    address: HONEYETHStrategyAddress
+  }
 ]
 
 export const towerFarms = [

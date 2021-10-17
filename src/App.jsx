@@ -8,7 +8,7 @@ import { BrowserRouter, HashRouter, Link, Route, Switch } from "react-router-dom
 import Web3Modal from "web3modal";
 import "./App.css";
 import { Account, Contract, Faucet, GasGauge, Header, Ramp, ThemeSwitch } from "./components";
-import { INFURA_ID, NETWORK, NETWORKS, FARMS, STAKING_POOL_ADDRESSES, legacyFarms, sushiFarms, swaprFarms, peggFarms, dopexFarms, towerFarms } from "./constants";
+import { INFURA_ID, NETWORK, NETWORKS, FARMS, STAKING_POOL_ADDRESSES, legacyFarms, sushiFarms, swaprFarms, peggFarms, dopexFarms, towerFarms, honeyFarms } from "./constants";
 import { Transactor } from "./helpers";
 import {
   useBalance,
@@ -510,6 +510,16 @@ function App(props) {
               Sushi Farms
             </Link>
           </Menu.Item>
+          <Menu.Item key="/honeys-farms">
+            <Link
+              onClick={() => {
+                setRoute("/honey-farms");
+              }}
+              to="/honey-farms"
+            >
+              Honey Farms
+            </Link>
+          </Menu.Item>
 
          
           <Menu.Item key="/legacy-farms">
@@ -627,6 +637,26 @@ function App(props) {
               farms={sushiFarms}
               pageName={"Sushi Farms"}
               farmsURL={"https://app.sushi.com/farm"}
+            />
+          </Route>
+
+          <Route path="/honey-farms">
+            <RelatedLPFarms
+              address={address}
+              userSigner={userSigner}
+              mainnetProvider={mainnetProvider}
+              localProvider={localProvider}
+              yourLocalBalance={yourLocalBalance}
+              price={ethUSDPrice}
+              tx={tx}
+              writeContracts={writeContracts}
+              readContracts={readContracts}
+              purpose={purpose}
+              setPurposeEvents={setPurposeEvents}
+              injectedProvider={injectedProvider}
+              farms={honeyFarms}
+              pageName={"Honey Farms"}
+              farmsURL={"https://thehoneypot.finance"}
             />
           </Route>
         
