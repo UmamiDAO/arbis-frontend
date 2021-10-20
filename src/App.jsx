@@ -720,7 +720,11 @@ function App(props) {
         <br />
         {/* footer */}
         {/*  <p>2021 🐧 <a href="twitter.com/0xPuffin">0xPuffin</a></p> */}
-        <p><a href="https://twitter.com/arbis_finance" target="_blank" rel="noopener noreferrer" className="arbis-red">Twitter</a> | <a href="https://discord.gg/VkCZUUKmKN" target="_blank" rel="noopener noreferrer" className="arbis-red">Discord</a> | <a href="https://github.com/Arbi-s" target="_blank" rel="noopener noreferrer" className="arbis-red">Github</a></p>
+        <p><a href="https://twitter.com/arbis_finance" target="_blank" rel="noopener noreferrer" className="arbis-red">Twitter</a> 
+        {" "}|{" "} <a href="https://discord.gg/VkCZUUKmKN" target="_blank" rel="noopener noreferrer" className="arbis-red">Discord</a> 
+        {" "}|{" "} <a href="https://github.com/Arbi-s" target="_blank" rel="noopener noreferrer" className="arbis-red">Github</a>
+        {" "}|{" "} <a href="https://curlyfries.xyz" target="_blank" rel="noopener noreferrer" className="arbis-red">Analytics</a>
+        </p>
 
       </div>
 
