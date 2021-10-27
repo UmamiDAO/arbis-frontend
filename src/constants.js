@@ -188,6 +188,7 @@ export const FARMS = Object.freeze({
   USDCETH: "usdc/eth",
   MIMETH2: "mim/eth",
   SPELLETH: "spell/eth",
+  SPELLETH2: "spell/eth2",
   MAGICUSDC: "magicusdc",
   AFARMETH: "afarmeth",
   SWPRETH: "swpr/eth(ended)",
@@ -242,6 +243,7 @@ import SWPRETHStrategy3Address from "./contracts/SWPRETHStrategy3.address";
 import HONEYETHStrategyAddress from "./contracts/HONEYETHStrategy.address";
 import HoneyUSDCStrategyAddress from "./contracts/HoneyUSDCStrategy.address";
 import HONEYADOGEStrategyAddress from "./contracts/HONEYADOGEStrategy.address";
+import SPELLETHStrategy2Address from "./contracts/SPELLETHStrategy2.address";
 
 export const STAKING_POOL_ADDRESSES = Object.freeze({
   NYAN: NyanStakingPoolAddress,
@@ -304,15 +306,20 @@ export const sushiFarms = [
     name: "USDC-ETH Strategy",
     address: USDCETHStrategyAddress
   },{
-    id: FARMS.MIMETH2,
+    id: FARMS.MIMETH2, 
     name: "MIM-ETH Strategy2",
     address: MIMETHStrategy2Address,
     specialWarning: "Users Compounding this farm only earn SUSHI and does not earn SPELL. SPELL is recompounded for depositors"
   },
-  ,{
+  {
     id: FARMS.SPELLETH,
-    name: "SPELL-ETH Strategy",
+    name: "SPELL-ETH (old) Strategy",
     address: SPELLETHStrategyAddress
+  },
+  {
+    id: FARMS.SPELLETH2,
+    name: "SPELL-ETH Strategy",
+    address: SPELLETHStrategy2Address
   }
  
 ]
