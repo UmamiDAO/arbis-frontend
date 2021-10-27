@@ -100,8 +100,9 @@ export default function CreateUI({
            
            <p style={{textAlign: "center"}}><b>Check out the Arbi's foodcourt bringing fun new products and forks of faves to Arbitrum!</b></p>
            <img src="/arbis-food-court-v3.png" style={{width: "100%"}}/>
+           
            <p><a href="https://zerotwohm.finance">ZeroTwOhm</a> - The first Ohmlike on Arbitrum</p>
-           <p><a href="https://Arbicheems.finance">ArbiCheems</a>+<a href="https://blackhole.bet">CheemsHole</a> - A simple (highly deflationary) meme coin and a winner take all degen gambling game (new Blackhole but now more balanced for all sizes of playes then previous versions)  </p>
+           <p><a href="https://Arbicheems.finance">ArbiCheems</a>+CheemsHole - A simple (highly deflationary) meme coin and a winner take all degen gambling game (new Blackhole but now more balanced for all sizes of playes then previous versions)  </p>
            
            
            
