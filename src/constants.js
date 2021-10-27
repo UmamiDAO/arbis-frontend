@@ -436,6 +436,21 @@ export const legacyFarms = [
 {
   id: FARMS.PPEGGFARMS,
   name: "Pegg Farms"
+},
+{
+  id: FARMS.HONEYETH,
+  name: "HONEY-ETH Strategy",
+  farmAddress: HONEYETHStrategyAddress
+},
+{
+  id: FARMS.HONEYUSDC,
+  name: "HONEY-USDC Strategy",
+  farmAddress: HoneyUSDCStrategyAddress
+},
+{
+  id: FARMS.HONEYADOGE,
+  name: "HONEY-ADOGE",
+  farmAddress: HONEYADOGEStrategyAddress
 }
 ]
   

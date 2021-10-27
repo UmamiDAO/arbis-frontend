@@ -147,6 +147,51 @@ export default function LegacyFarms({
               hideDeposit={farms[farm].hideDeposit}
               zapperAddress={farms[farm].zapperAddress}
             />;
+            case FARMS.HONEYADOGE:
+              return <FarmLPSushiUI
+                nyanETHPrice={0}
+                address={address}
+                userSigner={userSigner}
+                provider={localProvider}
+                injectedProvider={injectedProvider}
+                tx={tx}
+                farmAddress={farms[farm].farmAddress}
+                farmName={farms[farm].name}
+                specialWarning={farms[farm].specialWarning}
+                hint={farms[farm].hint}
+                hideDeposit={farms[farm].hideDeposit}
+                zapperAddress={farms[farm].zapperAddress}
+              />;
+              case FARMS.HONEYETH:
+                return <FarmLPSushiUI
+                  nyanETHPrice={0}
+                  address={address}
+                  userSigner={userSigner}
+                  provider={localProvider}
+                  injectedProvider={injectedProvider}
+                  tx={tx}
+                  farmAddress={farms[farm].farmAddress}
+                  farmName={farms[farm].name}
+                  specialWarning={farms[farm].specialWarning}
+                  hint={farms[farm].hint}
+                  hideDeposit={farms[farm].hideDeposit}
+                  zapperAddress={farms[farm].zapperAddress}
+                />;
+                case FARMS.HONEYUSDC:
+                  return <FarmLPSushiUI
+                    nyanETHPrice={0}
+                    address={address}
+                    userSigner={userSigner}
+                    provider={localProvider}
+                    injectedProvider={injectedProvider}
+                    tx={tx}
+                    farmAddress={farms[farm].farmAddress}
+                    farmName={farms[farm].name}
+                    specialWarning={farms[farm].specialWarning}
+                    hint={farms[farm].hint}
+                    hideDeposit={farms[farm].hideDeposit}
+                    zapperAddress={farms[farm].zapperAddress}
+                  />;
             case FARMS.PPEGGFARMS:
               return <RelatedLPFarms
               address={address}

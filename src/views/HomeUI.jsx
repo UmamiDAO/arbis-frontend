@@ -97,8 +97,17 @@ export default function CreateUI({
           <p className="warning" style={{"margin": "20px 0"}}>Warning: high risk of extreme volatility of underlying assets and smart contracts. All contracts have not been formally audited.</p> 
           <hr></hr>
           <div style={{width: "60%", textAlign: "left", margin: "auto", marginTop: "50px"}}>
-            <h1>About</h1>
-            <p>Arbi’s Finance is the premier autocompounder on the Arbitrum network. Deposit your tokens in our vaults and earn more yield while saving time.</p>
+           
+           <p style={{textAlign: "center"}}><b>Check out the Arbi's foodcourt bringing fun new products and forks of faves to Arbitrum!</b></p>
+           <img src="/arbis-food-court-v3.png" style={{width: "100%"}}/>
+           <p><a href="https://zerotwohm.finance">ZeroTwOhm</a> - The first Ohmlike on Arbitrum</p>
+           <p><a href="https://Arbicheems.finance">ArbiCheems</a>+<a href="https://blackhole.bet">CheemsHole</a> - A simple (highly deflationary) meme coin and a winner take all degen gambling game (new Blackhole but now more balanced for all sizes of playes then previous versions)  </p>
+           
+           
+           
+            <h3>About</h3>
+            <p>See our new documentation: <a href="https://arbisfinance.gitbook.io/food-court/">here</a></p>
+          {/*   <p>Arbi’s Finance is the premier autocompounder on the Arbitrum network. Deposit your tokens in our vaults and earn more yield while saving time.</p>
             <h1>FAQ</h1>
             <h2>How does Arbi’s Finance work?</h2>
             <p>Arbi’s Finance auto-compounds yield farming rewards. Users deposit their tokens into vaults. Vaults earn yield in reward tokens, such as $SUSHI, which is then reinvested in the vault, compounding everyone’s vault deposits.</p>
@@ -116,7 +125,7 @@ export default function CreateUI({
 <li>Smart contract risk -- all of our contracts are unaudited and many of the underlying smart contracts from other decentralized applications and projects which our vaults are built on may be unaudited.</li>
 <li>Scam or rug-pull risk of deposited tokens -- we are not associated with any of the projects that we list unless stated otherwise. The tokenomics, security practices, and code regarding tokens from projects which we provide products for is outside of our control.</li>
 <li>Impermanent loss (in the case of multi-asset liquidity pools) – price variation and divergence of pooled assets leading to losses for liquidity providers.</li>
-          </ul>
+          </ul> */}
 <p>Please use our products responsibility, and never invest more than you can afford to lose. Arbi’s Finance does not guarantee compensation for any of our users in the event of exploits, hacks, and other unforeseeable negative events.</p>
           </div>
         </>

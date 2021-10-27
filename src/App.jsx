@@ -510,16 +510,7 @@ function App(props) {
               Sushi Farms
             </Link>
           </Menu.Item>
-          <Menu.Item key="/honeys-farms">
-            <Link
-              onClick={() => {
-                setRoute("/honey-farms");
-              }}
-              to="/honey-farms"
-            >
-              Honey Farms
-            </Link>
-          </Menu.Item>
+         
 
          
           <Menu.Item key="/legacy-farms">
@@ -640,26 +631,6 @@ function App(props) {
             />
           </Route>
 
-          <Route path="/honey-farms">
-            <RelatedLPFarms
-              address={address}
-              userSigner={userSigner}
-              mainnetProvider={mainnetProvider}
-              localProvider={localProvider}
-              yourLocalBalance={yourLocalBalance}
-              price={ethUSDPrice}
-              tx={tx}
-              writeContracts={writeContracts}
-              readContracts={readContracts}
-              purpose={purpose}
-              setPurposeEvents={setPurposeEvents}
-              injectedProvider={injectedProvider}
-              farms={honeyFarms}
-              pageName={"Honey Farms"}
-              farmsURL={"https://thehoneypot.finance"}
-            />
-          </Route>
-        
         
           <Route path="/legacy-farms">
             <LegacyFarms
@@ -724,6 +695,7 @@ function App(props) {
         {" "}|{" "} <a href="https://discord.gg/VkCZUUKmKN" target="_blank" rel="noopener noreferrer" className="arbis-red">Discord</a> 
         {" "}|{" "} <a href="https://github.com/Arbi-s" target="_blank" rel="noopener noreferrer" className="arbis-red">Github</a>
         {" "}|{" "} <a href="https://curlyfries.xyz" target="_blank" rel="noopener noreferrer" className="arbis-red">Analytics</a>
+        {" "}|{" "} <a href="https://arbisfinance.gitbook.io/food-court/" target="_blank" rel="noopener noreferrer" className="arbis-red">Docs</a>
         </p>
 
       </div>
