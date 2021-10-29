@@ -191,6 +191,20 @@ export default function LegacyFarms({
                     hint={farms[farm].hint}
                     hideDeposit={farms[farm].hideDeposit}
                     zapperAddress={farms[farm].zapperAddress}
+                  />; case FARMS.SPELLETH2:
+                  return <FarmLPSushiUI
+                    nyanETHPrice={0}
+                    address={address}
+                    userSigner={userSigner}
+                    provider={localProvider}
+                    injectedProvider={injectedProvider}
+                    tx={tx}
+                    farmAddress={farms[farm].farmAddress}
+                    farmName={farms[farm].name}
+                    specialWarning={farms[farm].specialWarning}
+                    hint={farms[farm].hint}
+                    hideDeposit={farms[farm].hideDeposit}
+                    zapperAddress={farms[farm].zapperAddress}
                   />;
             case FARMS.PPEGGFARMS:
               return <RelatedLPFarms

@@ -313,13 +313,8 @@ export const sushiFarms = [
   },
   {
     id: FARMS.SPELLETH,
-    name: "SPELL-ETH (old) Strategy",
-    address: SPELLETHStrategyAddress
-  },
-  {
-    id: FARMS.SPELLETH2,
     name: "SPELL-ETH Strategy",
-    address: SPELLETHStrategy2Address
+    address: SPELLETHStrategyAddress
   }
  
 ]
@@ -458,6 +453,11 @@ export const legacyFarms = [
   id: FARMS.HONEYADOGE,
   name: "HONEY-ADOGE",
   farmAddress: HONEYADOGEStrategyAddress
+},
+{
+  id: FARMS.SPELLETH2,
+  name: "SPELL-ETH Strategy",
+  farmAddress: SPELLETHStrategy2Address
 }
 ]
   
