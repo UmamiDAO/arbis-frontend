@@ -13,6 +13,7 @@ import axios from "axios";
 import { SyncOutlined, UploadOutlined } from "@ant-design/icons";
 import { Address, Balance, EtherInput, AddressInput, Hint, RelationToNow } from "../components";
 import { parseEther, formatEther } from "@ethersproject/units";
+import {ethers} from "ethers";
 import { Alert } from "antd";
 import { ipfs, ipfsLinkFromHash, numberWithCommas, relationToNow, truncateString } from "../helpers";
 import { useExternalContractLoader, useContractReader, useBalance } from "../hooks";
@@ -40,6 +41,8 @@ export default function STArbisUI(props) {
   const { farmId } = useParams();
   const farmInstance = useExternalContractLoader(injectedProvider, farmAddress, StArbisABI);
   const tokenAddress = useContractReader({ stARBIS: farmInstance }, "stARBIS", "arbisToken", []);
+  const Z2OAddress = "0xdb96f8efd6865644993505318cc08ff9c42fb9ac";
+  const cheemsAddress = "0x75a2f30929c539e7d4ee033c9331b89f879c0cf7";
 
   console.log(`farmAddress ${farmAddress}`);
 
@@ -60,6 +63,8 @@ export default function STArbisUI(props) {
 
   const availablewETH = useContractReader({ stARBIS: farmInstance }, "stARBIS", "getAvailableTokenRewards", [wETH]);
   const availablewARBIS = useContractReader({ stARBIS: farmInstance }, "stARBIS", "getAvailableTokenRewards", [tokenAddress]);
+  const availableZ2O = useContractReader({ stARBIS: farmInstance }, "stARBIS", "getAvailableTokenRewards", [Z2OAddress]);
+  const availableCheems = useContractReader({ stARBIS: farmInstance }, "stARBIS", "getAvailableTokenRewards", [cheemsAddress]);
 
 
 
@@ -297,7 +302,7 @@ export default function STArbisUI(props) {
                 <Hint
                   hint={
                     <span>
-                      Collect all pending ETH your stARBIS have generated💸
+                      Collect all pending rewards your stARBIS generated 💸
                     </span>
                   }
                 />
@@ -308,6 +313,12 @@ export default function STArbisUI(props) {
                 </p>
                 <p>
                   Available wETH:{" " + formatEther(availablewETH ? availablewETH : "0")}
+                </p>
+                <p>
+                  Available Z2O:{" " + ethers.utils.formatUnits(availableZ2O ? availableZ2O : "0",9)}
+                </p>
+                <p>
+                  Available Cheems:{" " + formatEther(availableCheems ? availableCheems : "0")}
                 </p>
                 <Button onClick={() => handleCompound()}>Collect All</Button>
                 <Hint
