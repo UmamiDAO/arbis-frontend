@@ -90,7 +90,7 @@ export default function CreateUI({
         <div>
           <ArbiSpinner />
           {injectedProvider == undefined ? 
-          <h4>Connect your wallet on the Arbitrum Network</h4> : ""}
+          <h4>Connect your wallet to the Arbitrum Network</h4> : ""}
         </div>
       ) : (
         <>
@@ -98,15 +98,15 @@ export default function CreateUI({
           <hr></hr>
           <div style={{width: "60%", textAlign: "left", margin: "auto", marginTop: "50px"}}>
            
-           <p style={{textAlign: "center"}}><b>Check out the Arbi's foodcourt bringing fun new products and forks of faves to Arbitrum!</b></p>
-           <img src="/arbis-food-court-v3.png" style={{width: "100%"}}/>
+           <p style={{textAlign: "center"}}><b>Check out the Arbi's food court – always bringing fun new products and your favorite forks to Arbitrum!</b></p>
+           <img src="/arbis-food-court-v3.png" style={{width: "100%", marginBottom: "16px"}}/>
+           <h2>Food Court Offerings</h2>
+           <p><a href="https://zerotwohm.finance">ZeroTwOhm</a> - The first OHM-like project on Arbitrum.</p>
+           <p><a href="https://arbicheems.finance">ArbiCheems</a> + CheemsHole (coming soon) - A simple (highly deflationary) meme coin with a winner-take-all degen gambling game (imagine Blackhole but more balanced for all sizes of players then previous versions).</p>
            
-           <p><a href="https://zerotwohm.finance">ZeroTwOhm</a> - The first Ohmlike on Arbitrum</p>
-           <p><a href="https://Arbicheems.finance">ArbiCheems</a>+CheemsHole - A simple (highly deflationary) meme coin and a winner take all degen gambling game (new Blackhole but now more balanced for all sizes of playes then previous versions)  </p>
            
            
-           
-            <h3>About</h3>
+            <h2>About</h2>
             <p>See our new documentation: <a href="https://arbisfinance.gitbook.io/food-court/">here</a></p>
           {/*   <p>Arbi’s Finance is the premier autocompounder on the Arbitrum network. Deposit your tokens in our vaults and earn more yield while saving time.</p>
             <h1>FAQ</h1>
@@ -127,7 +127,7 @@ export default function CreateUI({
 <li>Scam or rug-pull risk of deposited tokens -- we are not associated with any of the projects that we list unless stated otherwise. The tokenomics, security practices, and code regarding tokens from projects which we provide products for is outside of our control.</li>
 <li>Impermanent loss (in the case of multi-asset liquidity pools) – price variation and divergence of pooled assets leading to losses for liquidity providers.</li>
           </ul> */}
-<p>Please use our products responsibility, and never invest more than you can afford to lose. Arbi’s Finance does not guarantee compensation for any of our users in the event of exploits, hacks, and other unforeseeable negative events.</p>
+<p>Please use our products responsibly and never invest more than you can afford to lose. Arbi’s Finance does not guarantee compensation for any of our users in the event of exploits, hacks, and other unforeseeable negative events.</p>
           </div>
         </>
       )}
