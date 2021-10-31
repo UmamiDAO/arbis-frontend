@@ -110,7 +110,7 @@ export const NETWORKS = {
     color: "#50a0ea",
     chainId: 42161,
     blockExplorer: "https://explorer.arbitrum.io/#/",
-    rpcUrl: "https://arb1.arbitrum.io/rpc",//`https://arb-mainnet.g.alchemy.com/v2/wFJIm-LPCrRYJaD0NKsdVUXjz-OT9BIJ`,
+    rpcUrl: "https://apis.ankr.com/5b27e1f711684417b9bd26c9e5999f2a/cbdede3b99068ea911a529811788a2b7/arbitrum/full/main",
     gasPrice: 0,
   },
   localOptimismL1: {
