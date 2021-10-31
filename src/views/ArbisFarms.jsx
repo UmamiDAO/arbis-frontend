@@ -22,6 +22,8 @@ import SPELLETHArbisRewardsAddress from "../contracts/SPELLETHArbisRewards.addre
 import MIMETHArbisRewardsAddress from "../contracts/MIMETHArbisRewards.address";
 import ARBISETHStrategy5Address from "../contracts/ARBISETHStrategy5.address";
 import ARBISETHStrategy6Address from "../contracts/ARBISETHStrategy6.address";
+import FarmNYANETHUI from "./FarmNYANETHUI";
+import CHEEMSETHStrategyAddress from "../contracts/CHEEMSETHStrategy.address";
 
 
 
@@ -42,9 +44,16 @@ export default function ArbisFarms({
     const farms = [
        
         { id: "stARBIS",
-        farmAddress: StArbisAddress2 },
+        address: StArbisAddress2 },
        
-        
+        {
+            id: "CHEEMS/ETH",
+            name: "CHEEMS/ETH",
+            address: CHEEMSETHStrategyAddress,/* zapper is not working
+            zapperAddress: ARBISETHSwaprZapperAddress, */
+            specialWarning: "",
+            hideDeposit: false,
+           },
 
        
         {
@@ -63,7 +72,7 @@ export default function ArbisFarms({
             zapperAddress: ARBISETHSwaprZapperAddress, */
             specialWarning: "",
             hideDeposit: false,
-            hint: <>This is the autocompounder for Epoch 3. If you dont see your liquidity its probably in the old one which is now in Legacy Farms tab. you can manually get the LP token on: <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
+            hint: <>This is the autocompounder for Epoch 4. If you dont see your liquidity its probably in the old one which is now in Legacy Farms tab. you can manually get the LP token on: <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
         },
 
         {
@@ -115,10 +124,22 @@ export default function ArbisFarms({
                 provider={localProvider}
                 injectedProvider={injectedProvider}
                 tx={tx}
-                farmAddress={farms[farm].farmAddress}
+                farmAddress={farms[farm].address}
                 warning={farms[farm].specialWarning}
                 hideDeposit={farms[farm].hideDeposit}
             />
+        } else if (farm == 1) {
+           return <FarmNYANETHUI
+            nyanETHPrice={0}
+            address={address}
+            userSigner={userSigner}
+            provider={localProvider}
+            injectedProvider={injectedProvider}
+            tx={tx}
+            farmAddress={farms[farm].address}
+            farmName={"CHEEMS-ETH Strategy"}
+            stakingPoolAddress={STAKING_POOL_ADDRESSES.NYANETH2}
+          />;
         } else if (farm != farms.length) {
             return <FarmLPSushiUI
         nyanETHPrice={0}

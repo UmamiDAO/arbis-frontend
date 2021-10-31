@@ -65,18 +65,26 @@ console.log(`underlying name ${underlyingName}`);
   const shareBalance = useContractReader({ NYANETHStrategy: farmInstance }, "NYANETHStrategy", "balanceOf", [address]);
   const approvedShares = useContractReader({ NYANETHStrategy: farmInstance }, "NYANETHStrategy", "allowance", [address, farmAddress]);
   const underlyingTokensPerShare = useContractReader({ NYANETHStrategy: farmInstance }, "NYANETHStrategy", "getDepositTokensForShares", [BigInt(1000000000000000000)]);
-  const usersUnderlyingTokensAvailable = useContractReader({ NYANETHStrategy: farmInstance }, "NYANETHStrategy", "getDepositTokensForShares", [shareBalance]);
+  const usersUnderlyingTokensAvailable = useContractReader({ NYANETHStrategy: farmInstance }, "NYANETHStrategy", "getDepositTokensForShares", [shareBalance ? shareBalance : 0]);
 
   /* 1) query WETH token contract for LP balance */
   const wethTokenInstance = useExternalContractLoader(injectedProvider, WETHTokenAddress, ERC20Abi);
   const wethLPBalance = useContractReader({ ERC20: wethTokenInstance }, "ERC20", "balanceOf", [NyanETHSushiLPAddress]);
   const lpInstance = useExternalContractLoader(injectedProvider, NyanETHSushiLPAddress, SushiLPAbi); 
   const lpTotalSupply = useContractReader({ SLP: lpInstance }, "SLP", "totalSupply")
+
+
+  let stakingPoolInstance;
+  let stakingPoolRewardRate;
+  let stakingPoolTotalSupply;
+  if (stakingPoolAddress) {
+     stakingPoolInstance = useExternalContractLoader(injectedProvider, stakingPoolAddress, NyanRewardsContractAbi);
+    /* `rewardRate` is the reward emitted per sec */
   
-  const stakingPoolInstance = useExternalContractLoader(injectedProvider, stakingPoolAddress, NyanRewardsContractAbi);
-  /* `rewardRate` is the reward emitted per sec */
-  const stakingPoolRewardRate = useContractReader({ NyanRewards: stakingPoolInstance }, "NyanRewards", "rewardRate");
-  const stakingPoolTotalSupply = useContractReader({ NyanRewards: stakingPoolInstance }, "NyanRewards", "totalSupply");
+     stakingPoolRewardRate = useContractReader({ NyanRewards: stakingPoolInstance }, "NyanRewards", "rewardRate");
+     stakingPoolTotalSupply = useContractReader({ NyanRewards: stakingPoolInstance }, "NyanRewards", "totalSupply");
+  }
+ 
 
   const SECONDS_PER_YEAR = 365.25 * 24 * 60 * 60;
   //const BLOCKS_IN_A_YEAR = SECONDS_PER_YEAR / 14;
@@ -226,7 +234,7 @@ console.log(`underlying name ${underlyingName}`);
             <Content className="farm">
               <h1>{farmName}</h1>
               {
-                nyanETHPrice && wethLPBalance && stakingPoolRewardRate && stakingPoolTotalSupply && lpTotalSupply && (
+                nyanETHPrice && wethLPBalance && stakingPoolAddress && stakingPoolRewardRate && stakingPoolTotalSupply && lpTotalSupply && (
                   <h2>APY: {numberWithCommas((aprToApy(apr())).toFixed(0))}%</h2>
                 ) 
               }
