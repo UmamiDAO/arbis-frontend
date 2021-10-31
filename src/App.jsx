@@ -459,17 +459,6 @@ function App(props) {
               Home
             </Link>
           </Menu.Item>
-          <Menu.Item key="/nyan-farms">
-            <Link
-              onClick={() => {
-                setRoute("/nyan-farms");
-              }}
-              to="/nyan-farms"
-            >
-              NYAN Farms
-            </Link>
-          </Menu.Item>
-
           <Menu.Item key="/arbis-farms">
             <Link
               onClick={() => {
@@ -478,6 +467,16 @@ function App(props) {
               to="/arbis-farms"
             >
               ARBIS Farms
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="/nyan-farms">
+            <Link
+              onClick={() => {
+                setRoute("/nyan-farms");
+              }}
+              to="/nyan-farms"
+            >
+              NYAN Farms
             </Link>
           </Menu.Item>
          {/*  <Menu.Item key="/dopex-farms">

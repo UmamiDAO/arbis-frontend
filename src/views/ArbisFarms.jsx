@@ -43,36 +43,35 @@ export default function ArbisFarms({
     const [farm, setFarm] = React.useState(0);
     const farms = [
        
-        { id: "stARBIS",
-        address: StArbisAddress2 },
+        { 
+            id: "stARBIS",
+            address: StArbisAddress2 
+        },
        
         {
             id: "CHEEMS/ETH",
             name: "CHEEMS/ETH",
-            address: CHEEMSETHStrategyAddress,/* zapper is not working
-            zapperAddress: ARBISETHSwaprZapperAddress, */
+            address: CHEEMSETHStrategyAddress,
             specialWarning: "",
             hideDeposit: false,
-           },
-
+        },
        
         {
-            id: "ARBIS/ETH (epoch 3)",
-            name: "ARBIS/ETH (epoch 3)",
-            address: ARBISETHStrategy5Address,/* zapper is not working
-            zapperAddress: ARBISETHSwaprZapperAddress, */
+            id: "ARBIS/ETH – Epoch 4 (Active)",
+            name: "ARBIS/ETH – Epoch 4 (Active)",
+            address: ARBISETHStrategy6Address,
             specialWarning: "",
             hideDeposit: false,
-            hint: <>This is the autocompounder for Epoch 3. If you dont see your liquidity its probably in the old one which is now in Legacy Farms tab. you can manually get the LP token on: <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
+            hint: <>This is the active Swapr autocompounder for Epoch 4. If you don't see your liquidity listed, it has probably expired and must be re-added into this epoch. Check Epoch 3 or in the Legacy Farms tab. For this Epoch 4 LP token, you can acquire it by adding liquidity to Swapr's <a href="https://swapr.eth.link/#/pools/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbEAE888168B44b03461/0x986cf605c1d1cAA4Ff60B9aFa2a45F046643d57F?chainId=42161" target="_blank">Pairs / ETH/ARBIS</a> page.</>
         },
+
         {
-            id: "ARBIS/ETH (epoch 4)",
-            name: "ARBIS/ETH (epoch 4)",
-            address: ARBISETHStrategy6Address,/* zapper is not working
-            zapperAddress: ARBISETHSwaprZapperAddress, */
+            id: "ARBIS/ETH – Epoch 3 (Expired)",
+            name: "ARBIS/ETH – Epoch 3 (Expired)",
+            address: ARBISETHStrategy5Address,
             specialWarning: "",
             hideDeposit: false,
-            hint: <>This is the autocompounder for Epoch 4. If you dont see your liquidity its probably in the old one which is now in Legacy Farms tab. you can manually get the LP token on: <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
+            hint: <>This is the Swapr autocompounder for Epoch 3. This is now expired and no longer compounding so please remove your LP tokens at Swapr's <a href="https://swapr.eth.link/#/pools/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbEAE888168B44b03461?chainId=42161" target="_blank">Pairs / Expired ETH/ARBIS</a> page and re-add the liquidity into Epoch 4.</>
         },
 
         {
@@ -90,17 +89,6 @@ export default function ArbisFarms({
             specialWarning: "",
             hint: <>Stake your Arbis MIM/ETH LP SHARES to earn even more rewards!</>
         }
-       /*  {
-            id: "ARBIS/ETH (OLD)",
-            name: "ARBIS/ETH (OLD, Do not deposit into this)",
-            address: ARBISETHStrategyAddress,
-            specialWarning: "",
-            hideDeposit: true,
-            hint: <>Get this LP token on <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a>
-            <br/>
-            Please withdraw your ARBIS from this fund and re-stake in the new contract
-            </>
-        }, */
     ]
 
     function handleSetFarm(farmid) {
