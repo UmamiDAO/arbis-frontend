@@ -57,8 +57,8 @@ export default function ArbisFarms({
 
        
         {
-            id: "ARBIS/ETH (epoch 3)",
-            name: "ARBIS/ETH (epoch 3)",
+            id: "ARBIS/ETH (epoch 3)(old)",
+            name: "ARBIS/ETH (epoch 3)(old)",
             address: ARBISETHStrategy5Address,/* zapper is not working
             zapperAddress: ARBISETHSwaprZapperAddress, */
             specialWarning: "",
@@ -66,8 +66,8 @@ export default function ArbisFarms({
             hint: <>This is the autocompounder for Epoch 3. If you dont see your liquidity its probably in the old one which is now in Legacy Farms tab. you can manually get the LP token on: <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
         },
         {
-            id: "ARBIS/ETH (epoch 4)",
-            name: "ARBIS/ETH (epoch 4)",
+            id: "ARBIS/ETH (epoch 4)(new)",
+            name: "ARBIS/ETH (epoch 4)(new)",
             address: ARBISETHStrategy6Address,/* zapper is not working
             zapperAddress: ARBISETHSwaprZapperAddress, */
             specialWarning: "",
