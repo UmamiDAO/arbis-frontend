@@ -34,6 +34,8 @@ const ipfsClient = createIPFSClient("https://ipfs.infura.io:5001");
 const { Option } = Select;
 const { TextArea } = Input;
 const { RangePicker } = DatePicker;
+import FetchHorsey from '../hooks/FetchHorsey.js'
+
 
 export default function FarmNYANETHUI(props) {
   //props{match.params, provider, userSigner, address, tx}
@@ -97,6 +99,23 @@ console.log(`underlying name ${underlyingName}`);
   }
   /* https://gist.github.com/sterlu/4b44f59ea665819974ae684d7f564d9b */
   const aprToApy = (interest, frequency = 12) => ((1 + (interest / 100) / frequency) ** frequency - 1) * 100;
+
+
+  let horseyData = {}
+  let aprHorsey = "";
+  let tradingAPR = "";
+  let totalValueStaked = "";
+  let underlyingTokenPrice = "";
+  let combinedAPR = 0;
+
+    try {
+  horseyData = FetchHorsey(farmAddress);
+  aprHorsey = horseyData.apr;
+  tradingAPR = horseyData.tradingAPR;
+  totalValueStaked = horseyData.totalValueStaked;
+  underlyingTokenPrice = horseyData.underlyingTokenPrice;
+  combinedAPR = aprToApy(parseFloat(aprHorsey)+parseFloat(tradingAPR)).toFixed(2);
+  } catch(error) {console.log('Horsey error ',error)}
   
   const [loading, setLoading] = React.useState(true);
   const [visible, setVisible] = React.useState(false);
@@ -238,14 +257,16 @@ console.log(`underlying name ${underlyingName}`);
                   <h2>APY: {numberWithCommas((aprToApy(apr())).toFixed(0))}%</h2>
                 ) 
               }
+              { !!combinedAPR &&  (
+                  <h2>APY: {numberWithCommas(combinedAPR)}%</h2> )}
               <a href={`https://arbiscan.io/address/${farmAddress}`} target="_blank" rel="noopener noreferrer">
                 {" "}
                 <Hint hint={<>{truncateString(`${farmAddress}`, 8)}</>} />
               </a>
               {specialWarning ? (<p className="special-warning">{specialWarning}</p>) : ""}
-              Stake your NYAN/ETH  $SLP Tokens for {showShareSymbol() ? showShareSymbol() : ""} in Arbi to let them compound automatically!
+              Stake your {showShareSymbol().includes("CHEEMS") ? "CHEEMS/ETH" : "NYAN/ETH"}  $SLP Tokens for {showShareSymbol() ? showShareSymbol() : ""} in Arbis to let them compound automatically!
               <p className="tvl">
-                <b>TVL:</b> {parseFloat(formatEther(totalDeposits ? totalDeposits : "0")).toFixed(3)} {showSymbol()}
+                <b>TVL:</b> {parseFloat(formatEther(totalDeposits ? totalDeposits : "0")).toFixed(3)} {showSymbol()}  {!!totalValueStaked && (<span>== ${numberWithCommas(totalValueStaked)}</span>)}
                 <br/>
                 <b>1 {showShareSymbol()}:</b> {parseFloat(formatEther(underlyingTokensPerShare ? underlyingTokensPerShare : "0")).toFixed(3)} {showSymbol()}
               </p>
