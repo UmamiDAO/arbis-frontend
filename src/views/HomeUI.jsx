@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   Input,
   DatePicker,
@@ -17,6 +17,7 @@ import FarmListAddress from "../contracts/FarmList.address";
 import FarmListAbi from "../contracts/FarmList.abi";
 import Strategy from "../contracts/Strategy.abi";
 import ArbiSpinner from "./ArbiSpinner";
+import { ImageMap } from '@qiuz/react-image-map';
 
 const ipfsClient = createIPFSClient("https://ipfs.infura.io:5001");
 const { Option } = Select;
@@ -41,6 +42,7 @@ export default function CreateUI({
   injectedProvider,
 }) {
   const [loading, setLoading] = useState(true);
+  const [cursor, setCursor] = useState()
   const [currentFarm, setCurrentFarm] = useState("NYANSTRATEGY");
   const inUseProvider = injectedProvider;
   const instance = useExternalContractLoader(inUseProvider, FarmListAddress, FarmListAbi);
@@ -83,6 +85,26 @@ export default function CreateUI({
       setCurrentFarm(farm)
     }, 100);
   }
+  const onMapClick = (area, index) => {
+    const tip = `click map${index + 1}`;
+    if (index == 0) {
+      window.open('https://arbicheems.finance');
+    }
+    else if (index == 1) {
+      window.open('https://zerotwohm.finance');
+
+    }
+    else {}
+    console.log(tip, area);
+  }
+
+  // CHEEMSHOLE MAP {"width":"29.01960784313726%","height":"59.50920245398774%","left":"67.99325980392157%","top":"21.472392638036812%"}
+  const mapArea = [{"width":"30%","height":"59.8159509202454%","left":"2.306985294117647%","top":"23.92638036809816%",  
+    onMouseOver: () => console.log('map onMouseOver1')},
+  {"width":"30.58823529411765%","height":"62.26993865030674%","left":"34.46384803921569%","top":"19.938650306748464%",
+  onMouseOver: () => {console.log('map onMouseOver2')}}]
+  const img = './arbis-food-court-v3.png';
+  const ImageMapComponent = React.useMemo(() => <ImageMap className="usage-map" src={img} map={mapArea} onMapClick={onMapClick} />, [mapArea, img]);
 
   return (
     <div className="select-farms">
@@ -99,11 +121,19 @@ export default function CreateUI({
           <div style={{width: "60%", textAlign: "left", margin: "auto", marginTop: "50px"}}>
            
            <p style={{textAlign: "center"}}><b>Check out the Arbi's foodcourt bringing fun new products and forks of faves to Arbitrum!</b></p>
-           <img src="/arbis-food-court-v3.png" style={{width: "100%"}}/>
+           
+           <ImageMap
+	          className="usage-map"
+	          src={img}
+          	map={mapArea}
+	          onMapClick={onMapClick}
+          />
+           
+           {/* <img src="/arbis-food-court-v3.png" style={{width: "100%"}}/> */}
+           
            
            <p><a href="https://zerotwohm.finance">ZeroTwOhm</a> - The first Ohmlike on Arbitrum</p>
            <p><a href="https://Arbicheems.finance">ArbiCheems</a>+CheemsHole - A simple (highly deflationary) meme coin and a winner take all degen gambling game (new Blackhole but now more balanced for all sizes of playes then previous versions)  </p>
-           
            
            
             <h3>About</h3>

@@ -2092,6 +2092,14 @@
   resolved "https://registry.yarnpkg.com/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha1-p3c2C1s5oaLlEG+OhY8v0tBgxXA=
 
+"@qiuz/react-image-map@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@qiuz/react-image-map/-/react-image-map-1.1.3.tgz#37a9a911d27fb6ba6bafdcff205ead1c720a6c92"
+  integrity sha512-nAY9NUP3/8DTy0P2RiGNhhqgHfJ8aTPYrt8B7FJ+qvAGY3J8ec/ewZa63cI1bjJukEKav3FopzmWGILRZT3Gcw==
+  dependencies:
+    react "^16.8.6"
+    react-dom "^16.8.6"
+
 "@ramp-network/ramp-instant-sdk@^2.2.0":
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/@ramp-network/ramp-instant-sdk/-/ramp-instant-sdk-2.5.0.tgz#4d8a746cd5cf2dfd6ffb1451058cfe9126d85c10"
