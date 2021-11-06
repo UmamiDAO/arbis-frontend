@@ -52,7 +52,7 @@ export default function ArbisFarms({
         },
 
         {
-            id: "stARBISETH SUSHI LP",
+            id: "st[ARBIS/ETH] SUSHI LP",
             address: stARBISETHLPAddress,
             farmName: "ARBIS/ETH Sushi LP",
             earn: "Z2O",
