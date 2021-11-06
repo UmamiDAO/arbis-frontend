@@ -196,20 +196,23 @@ export const FARMS = Object.freeze({
   ARBIS_STAKING: "arbis-staking",
   PPEGG: "ppegg",
   PPEGGETH: "ppegg/eth",
-  PPEGGUSDC:"ppegg/usdc",
+  PPEGGUSDC: "ppegg/usdc",
   PONZI: "PONZI Pool 1",
   MIMETH: "mim/eth (Inactive)",
   STARBISOLD: "stARBIS(Inactive)",
   ARBISETH1: "ARBISETH1(Inactive)",
   ARBISETH2: "ARBISETH2(Inactive)",
   ARBISETH3: "ARBIS/ETH (epoch 2)",
+  ARBISETH4: "ARBIS/ETH (epoch 3",
   PPEGGFARMS: "Parrot Defi farms",
   DPX: "Dopex",
   IVORYUSDC: "ivory/usdc",
   TOWERUSDC: "tower/usdc",
   HONEYETH: "honey/eth",
   HONEYUSDC: "honey/usdc",
-  HONEYADOGE: "honey/adoge"
+  HONEYADOGE: "honey/adoge",
+  SPELLETHRewards: "SPELL/ETH Share Rewards",
+  MIMETHRewards: "MIM/ETH Share Rewards"
 });
 
 import NyanStakingPoolAddress from "./contracts/NyanStakingPool.address";
@@ -244,6 +247,10 @@ import HONEYETHStrategyAddress from "./contracts/HONEYETHStrategy.address";
 import HoneyUSDCStrategyAddress from "./contracts/HoneyUSDCStrategy.address";
 import HONEYADOGEStrategyAddress from "./contracts/HONEYADOGEStrategy.address";
 import SPELLETHStrategy2Address from "./contracts/SPELLETHStrategy2.address";
+import ARBISETHStrategy5Address from "./contracts/ARBISETHStrategy5.address";
+import ARBISETHStrategy6Address from "./contracts/ARBISETHStrategy6.address";
+import SPELLETHArbisRewardsAddress from "./contracts/SPELLETHArbisRewards.address";
+import MIMETHArbisRewardsAddress from "./contracts/MIMETHArbisRewards.address";
 
 export const STAKING_POOL_ADDRESSES = Object.freeze({
   NYAN: NyanStakingPoolAddress,
@@ -251,7 +258,7 @@ export const STAKING_POOL_ADDRESSES = Object.freeze({
   CARBON: CarbonStakingPoolAddress,
   PONG: PongStakingPoolAddress,
   PONZU: PonzuStakingPoolAddress,
-  APE:ApeStakingPoolAddress
+  APE: ApeStakingPoolAddress
 });
 
 export const dopexFarms = [
@@ -263,23 +270,22 @@ export const dopexFarms = [
 ]
 
 export const swaprFarms = [
-  {
-    id: FARMS.SWPRETH,
-    name: "SWPR-ETH Strategy",
-    address: SWPRETHStrategyAddress,
-    specialWarning: "This farm is now complete, migrate to the new one to continue earning rewards"
-  },
-  {
-    id: FARMS.SWPRETH,
-    name: "SWPR-ETH Strategy Epoch 2",
-    address: SWPRETHStrategy2Address
-  }
-  ,
+
   {
     id: FARMS.SWPRETH2,
     name: "SWPR-ETH Strategy Epoch 3",
     address: SWPRETHStrategy3Address
-  }
+  },
+    
+  {
+    id: "ARBIS/ETH (epoch 4)(new)",
+    name: "ARBIS/ETH (epoch 4)(new)",
+    address: ARBISETHStrategy6Address,/* zapper is not working
+    zapperAddress: ARBISETHSwaprZapperAddress, */
+    specialWarning: "",
+    hideDeposit: false,
+    hint: <>This is the autocompounder for Epoch 4. If you dont see your liquidity its probably in the old one which is now in Legacy Farms tab. you can manually get the LP token on: <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
+},
 ]
 
 export const peggFarms = [
@@ -305,8 +311,8 @@ export const sushiFarms = [
     id: FARMS.USDCETH,
     name: "USDC-ETH Strategy",
     address: USDCETHStrategyAddress
-  },{
-    id: FARMS.MIMETH2, 
+  }, {
+    id: FARMS.MIMETH2,
     name: "MIM-ETH Strategy2",
     address: MIMETHStrategy2Address,
     specialWarning: "Users Compounding this farm only earn SUSHI and does not earn SPELL. SPELL is recompounded for depositors"
@@ -316,7 +322,7 @@ export const sushiFarms = [
     name: "SPELL-ETH Strategy",
     address: SPELLETHStrategyAddress
   }
- 
+
 ]
 
 export const honeyFarms = [
@@ -343,13 +349,13 @@ export const towerFarms = [
     name: "TOWER-USDC Strategy",
     address: MaticTOWERUSDCStrategy,
     specialWarning: "This Farm only works on the matic/polygon network"
-  },{
+  }, {
     id: FARMS.IVORYUSDC,
     name: "IVORY-USDC Strategy",
     address: MaticIVORYUSDCStrategyAddress,
     specialWarning: "This Farm only works on the matic/polygon network"
   },
- 
+
 ]
 export const legacyFarms = [
   {
@@ -387,77 +393,112 @@ export const legacyFarms = [
     specialWarning: "this pool is inactive, pls migrate to new one in NYAN tab to continue compounding",
     stakingPoolAddress: STAKING_POOL_ADDRESSES.NYANETH
   },
-  { id: FARMS.STARBISOLD,
-  farmAddress: StArbisAddress, 
-  specialWarning: <>
-  <h4 style={{color: "red"}}>Please withdraw your ARBIS from this fund and re-stake in the new contract. This is to fix a issue with distributing ETH. While in this pool you will earn no rewards</h4>
-  <p>Withdraw fees have been disabled on this pool</p>
-  </>,
-  hideDeposit: true 
-  
+  {
+    id: FARMS.STARBISOLD,
+    farmAddress: StArbisAddress,
+    specialWarning: <>
+      <h4 style={{ color: "red" }}>Please withdraw your ARBIS from this fund and re-stake in the new contract. This is to fix a issue with distributing ETH. While in this pool you will earn no rewards</h4>
+      <p>Withdraw fees have been disabled on this pool</p>
+    </>,
+    hideDeposit: true
+
+  },
+  {
+    id: FARMS.ARBISETH1,
+    name: "ARBIS/ETH older",
+    farmAddress: ARBISETHStrategy2Address,
+    specialWarning: "",
+    hideDeposit: true,
+    hint: <>Get this LP token on <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
+  },
+
+  {
+    id: FARMS.ARBISETH2,
+    name: "ARBIS/ETH old",
+    farmAddress: ARBISETHStrategy3Address,
+    specialWarning: "The Farm for this pool has ended",
+    hideDeposit: true,
+    hint: <>Get this LP token on <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
+  },
+  ,
+
+  {
+    id: FARMS.ARBISETH3,
+    name: "ARBIS/ETH (epoch 2)",
+    farmAddress: ARBISETHStrategy4Address,
+    specialWarning: "The Farm for this pool has ended",
+    hideDeposit: true,
+    hint: <>Get this LP token on <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
+  },
+  {
+    id: FARMS.MIMETH,
+    name: "MIM-ETH Strategy(inactive)",
+    address: MIMETHStrategyAddress
+  },
+  {
+    id: FARMS.MAGICUSDC,
+    name: "MAGIC-USDC Strategy",
+    farmAddress: MagicUSDCStrategyAddress,
+    specialWarning: "🚨🚨 Magic charges a withdraw fee on the farm this strategy uses. See https://magicland.fi/forest for info on the current withdraw fee. Arbi's charges no withdraw fee on this pool.🚨🚨 "
+
+  },
+  {
+    id: FARMS.PPEGGFARMS,
+    name: "Pegg Farms"
+  },
+  {
+    id: FARMS.HONEYETH,
+    name: "HONEY-ETH Strategy",
+    farmAddress: HONEYETHStrategyAddress
+  },
+  {
+    id: FARMS.HONEYUSDC,
+    name: "HONEY-USDC Strategy",
+    farmAddress: HoneyUSDCStrategyAddress
+  },
+  {
+    id: FARMS.HONEYADOGE,
+    name: "HONEY-ADOGE",
+    farmAddress: HONEYADOGEStrategyAddress
+  },
+  {
+    id: FARMS.SPELLETH2,
+    name: "SPELL-ETH Strategy",
+    farmAddress: SPELLETHStrategy2Address
+  }, {
+    id: FARMS.SWPRETH,
+    name: "SWPR-ETH Strategy",
+    farmAddress: SWPRETHStrategyAddress,
+    specialWarning: "This farm is now complete, migrate to the new one to continue earning rewards"
+  },
+  {
+    id: FARMS.SWPRETH,
+    name: "SWPR-ETH Strategy Epoch 2",
+    farmAddress: SWPRETHStrategy2Address
+  },
+  {
+    id: FARMS.ARBISETH4,
+    name: "ARBIS/ETH (epoch 3)(old)",
+    farmAddress: ARBISETHStrategy5Address,/* zapper is not working
+    zapperAddress: ARBISETHSwaprZapperAddress, */
+    specialWarning: "",
+    hideDeposit: false,
+    hint: <>This is the autocompounder for Epoch 3. If you dont see your liquidity its probably in the old one which is now in Legacy Farms tab. you can manually get the LP token on: <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
 },
+
 {
-  id: FARMS.ARBISETH1,
-  name: "ARBIS/ETH older",
-  farmAddress: ARBISETHStrategy2Address,
+  id: FARMS.SPELLETHRewards,
+  name: "SPELL/ETH Share Rewards",
+  farmAddress: SPELLETHArbisRewardsAddress,
   specialWarning: "",
-  hideDeposit: true,
-  hint: <>Get this LP token on <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
+  hint: <>Stake your Arbis SPELL/ETH LP SHARES to earn even more rewards!</>
 },
 
 {
-  id: FARMS.ARBISETH2,
-  name: "ARBIS/ETH old",
-  farmAddress: ARBISETHStrategy3Address,
-  specialWarning: "The Farm for this pool has ended",
-  hideDeposit: true,
-  hint: <>Get this LP token on <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
-},
-,
-
-{
-  id: FARMS.ARBISETH3,
-  name: "ARBIS/ETH (epoch 2)",
-  farmAddress: ARBISETHStrategy4Address,
-  specialWarning: "The Farm for this pool has ended",
-  hideDeposit: true,
-  hint: <>Get this LP token on <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
-},
-{
-  id: FARMS.MIMETH,
-  name: "MIM-ETH Strategy(inactive)",
-  address: MIMETHStrategyAddress
-},
-{
-  id: FARMS.MAGICUSDC,
-  name: "MAGIC-USDC Strategy",
-  farmAddress: MagicUSDCStrategyAddress,
-  specialWarning:"🚨🚨 Magic charges a withdraw fee on the farm this strategy uses. See https://magicland.fi/forest for info on the current withdraw fee. Arbi's charges no withdraw fee on this pool.🚨🚨 "
-      
-},
-{
-  id: FARMS.PPEGGFARMS,
-  name: "Pegg Farms"
-},
-{
-  id: FARMS.HONEYETH,
-  name: "HONEY-ETH Strategy",
-  farmAddress: HONEYETHStrategyAddress
-},
-{
-  id: FARMS.HONEYUSDC,
-  name: "HONEY-USDC Strategy",
-  farmAddress: HoneyUSDCStrategyAddress
-},
-{
-  id: FARMS.HONEYADOGE,
-  name: "HONEY-ADOGE",
-  farmAddress: HONEYADOGEStrategyAddress
-},
-{
-  id: FARMS.SPELLETH2,
-  name: "SPELL-ETH Strategy",
-  farmAddress: SPELLETHStrategy2Address
+  id: FARMS.MIMETHRewards,
+  name: "MIM/ETH Share Rewards",
+  farmAddress: MIMETHArbisRewardsAddress,
+  specialWarning: "",
+  hint: <>Stake your Arbis MIM/ETH LP SHARES to earn even more rewards!</>
 }
 ]
-  

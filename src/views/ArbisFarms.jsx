@@ -69,40 +69,9 @@ export default function ArbisFarms({
         },
 
 
-        {
-            id: "ARBIS/ETH (epoch 3)(old)",
-            name: "ARBIS/ETH (epoch 3)(old)",
-            address: ARBISETHStrategy5Address,/* zapper is not working
-            zapperAddress: ARBISETHSwaprZapperAddress, */
-            specialWarning: "",
-            hideDeposit: false,
-            hint: <>This is the autocompounder for Epoch 3. If you dont see your liquidity its probably in the old one which is now in Legacy Farms tab. you can manually get the LP token on: <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
-        },
-        {
-            id: "ARBIS/ETH (epoch 4)(new)",
-            name: "ARBIS/ETH (epoch 4)(new)",
-            address: ARBISETHStrategy6Address,/* zapper is not working
-            zapperAddress: ARBISETHSwaprZapperAddress, */
-            specialWarning: "",
-            hideDeposit: false,
-            hint: <>This is the autocompounder for Epoch 4. If you dont see your liquidity its probably in the old one which is now in Legacy Farms tab. you can manually get the LP token on: <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a></>
-        },
+     
 
-        {
-            id: "SPELL/ETH Share Rewards",
-            name: "SPELL/ETH Share Rewards",
-            address: SPELLETHArbisRewardsAddress,
-            specialWarning: "",
-            hint: <>Stake your Arbis SPELL/ETH LP SHARES to earn even more rewards!</>
-        },
-
-        {
-            id: "MIM/ETH Share Rewards",
-            name: "MIM/ETH Share Rewards",
-            address: MIMETHArbisRewardsAddress,
-            specialWarning: "",
-            hint: <>Stake your Arbis MIM/ETH LP SHARES to earn even more rewards!</>
-        }
+       
         /*  {
              id: "ARBIS/ETH (OLD)",
              name: "ARBIS/ETH (OLD, Do not deposit into this)",

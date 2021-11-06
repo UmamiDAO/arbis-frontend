@@ -29,7 +29,7 @@ export default function LegacyFarms({
   writeContracts,
   injectedProvider,
   farms,
-  
+
 }) {
   //props{match.params, provider, userSigner, address, tx}
   const [farm, setFarm] = React.useState(0);
@@ -102,7 +102,7 @@ export default function LegacyFarms({
             hideDeposit={farms[farm].hideDeposit}
             zapperAddress={farms[farm].zapperAddress}
           />;
-          case FARMS.ARBISETH3:
+        case FARMS.ARBISETH3:
           return <FarmLPSushiUI
             nyanETHPrice={0}
             address={address}
@@ -117,7 +117,127 @@ export default function LegacyFarms({
             hideDeposit={farms[farm].hideDeposit}
             zapperAddress={farms[farm].zapperAddress}
           />;
-          case FARMS.MIMETH:
+        case FARMS.MIMETH:
+          return <FarmLPSushiUI
+            nyanETHPrice={0}
+            address={address}
+            userSigner={userSigner}
+            provider={localProvider}
+            injectedProvider={injectedProvider}
+            tx={tx}
+            farmAddress={farms[farm].farmAddress}
+            farmName={farms[farm].name}
+            specialWarning={farms[farm].specialWarning}
+            hint={farms[farm].hint}
+            hideDeposit={farms[farm].hideDeposit}
+            zapperAddress={farms[farm].zapperAddress}
+          />;
+        case FARMS.MAGICUSDC:
+          return <FarmLPSushiUI
+            nyanETHPrice={0}
+            address={address}
+            userSigner={userSigner}
+            provider={localProvider}
+            injectedProvider={injectedProvider}
+            tx={tx}
+            farmAddress={farms[farm].farmAddress}
+            farmName={farms[farm].name}
+            specialWarning={farms[farm].specialWarning}
+            hint={farms[farm].hint}
+            hideDeposit={farms[farm].hideDeposit}
+            zapperAddress={farms[farm].zapperAddress}
+          />;
+        case FARMS.HONEYADOGE:
+          return <FarmLPSushiUI
+            nyanETHPrice={0}
+            address={address}
+            userSigner={userSigner}
+            provider={localProvider}
+            injectedProvider={injectedProvider}
+            tx={tx}
+            farmAddress={farms[farm].farmAddress}
+            farmName={farms[farm].name}
+            specialWarning={farms[farm].specialWarning}
+            hint={farms[farm].hint}
+            hideDeposit={farms[farm].hideDeposit}
+            zapperAddress={farms[farm].zapperAddress}
+          />;
+        case FARMS.HONEYETH:
+          return <FarmLPSushiUI
+            nyanETHPrice={0}
+            address={address}
+            userSigner={userSigner}
+            provider={localProvider}
+            injectedProvider={injectedProvider}
+            tx={tx}
+            farmAddress={farms[farm].farmAddress}
+            farmName={farms[farm].name}
+            specialWarning={farms[farm].specialWarning}
+            hint={farms[farm].hint}
+            hideDeposit={farms[farm].hideDeposit}
+            zapperAddress={farms[farm].zapperAddress}
+          />;
+        case FARMS.HONEYUSDC:
+          return <FarmLPSushiUI
+            nyanETHPrice={0}
+            address={address}
+            userSigner={userSigner}
+            provider={localProvider}
+            injectedProvider={injectedProvider}
+            tx={tx}
+            farmAddress={farms[farm].farmAddress}
+            farmName={farms[farm].name}
+            specialWarning={farms[farm].specialWarning}
+            hint={farms[farm].hint}
+            hideDeposit={farms[farm].hideDeposit}
+            zapperAddress={farms[farm].zapperAddress}
+          />; 
+          case FARMS.SPELLETH2:
+          return <FarmLPSushiUI
+            nyanETHPrice={0}
+            address={address}
+            userSigner={userSigner}
+            provider={localProvider}
+            injectedProvider={injectedProvider}
+            tx={tx}
+            farmAddress={farms[farm].farmAddress}
+            farmName={farms[farm].name}
+            specialWarning={farms[farm].specialWarning}
+            hint={farms[farm].hint}
+            hideDeposit={farms[farm].hideDeposit}
+            zapperAddress={farms[farm].zapperAddress}
+          />;
+        case FARMS.SWPRETH:
+          return <FarmLPSushiUI
+            nyanETHPrice={0}
+            address={address}
+            userSigner={userSigner}
+            provider={localProvider}
+            injectedProvider={injectedProvider}
+            tx={tx}
+            farmAddress={farms[farm].farmAddress}
+            farmName={farms[farm].name}
+            specialWarning={farms[farm].specialWarning}
+            hint={farms[farm].hint}
+            hideDeposit={farms[farm].hideDeposit}
+            zapperAddress={farms[farm].zapperAddress}
+          />; 
+          case FARMS.ARBISETH4:
+          return <FarmLPSushiUI
+            nyanETHPrice={0}
+            address={address}
+            userSigner={userSigner}
+            provider={localProvider}
+            injectedProvider={injectedProvider}
+            tx={tx}
+            farmAddress={farms[farm].farmAddress}
+            farmName={farms[farm].name}
+            specialWarning={farms[farm].specialWarning}
+            hint={farms[farm].hint}
+            hideDeposit={farms[farm].hideDeposit}
+            zapperAddress={farms[farm].zapperAddress}
+          />;
+          case FARMS.SPELLETHRewards:
             return <FarmLPSushiUI
               nyanETHPrice={0}
               address={address}
@@ -132,22 +252,7 @@ export default function LegacyFarms({
               hideDeposit={farms[farm].hideDeposit}
               zapperAddress={farms[farm].zapperAddress}
             />;
-            case FARMS.MAGICUSDC:
-            return <FarmLPSushiUI
-              nyanETHPrice={0}
-              address={address}
-              userSigner={userSigner}
-              provider={localProvider}
-              injectedProvider={injectedProvider}
-              tx={tx}
-              farmAddress={farms[farm].farmAddress}
-              farmName={farms[farm].name}
-              specialWarning={farms[farm].specialWarning}
-              hint={farms[farm].hint}
-              hideDeposit={farms[farm].hideDeposit}
-              zapperAddress={farms[farm].zapperAddress}
-            />;
-            case FARMS.HONEYADOGE:
+            case FARMS.MIMETHRewards:
               return <FarmLPSushiUI
                 nyanETHPrice={0}
                 address={address}
@@ -162,64 +267,20 @@ export default function LegacyFarms({
                 hideDeposit={farms[farm].hideDeposit}
                 zapperAddress={farms[farm].zapperAddress}
               />;
-              case FARMS.HONEYETH:
-                return <FarmLPSushiUI
-                  nyanETHPrice={0}
-                  address={address}
-                  userSigner={userSigner}
-                  provider={localProvider}
-                  injectedProvider={injectedProvider}
-                  tx={tx}
-                  farmAddress={farms[farm].farmAddress}
-                  farmName={farms[farm].name}
-                  specialWarning={farms[farm].specialWarning}
-                  hint={farms[farm].hint}
-                  hideDeposit={farms[farm].hideDeposit}
-                  zapperAddress={farms[farm].zapperAddress}
-                />;
-                case FARMS.HONEYUSDC:
-                  return <FarmLPSushiUI
-                    nyanETHPrice={0}
-                    address={address}
-                    userSigner={userSigner}
-                    provider={localProvider}
-                    injectedProvider={injectedProvider}
-                    tx={tx}
-                    farmAddress={farms[farm].farmAddress}
-                    farmName={farms[farm].name}
-                    specialWarning={farms[farm].specialWarning}
-                    hint={farms[farm].hint}
-                    hideDeposit={farms[farm].hideDeposit}
-                    zapperAddress={farms[farm].zapperAddress}
-                  />; case FARMS.SPELLETH2:
-                  return <FarmLPSushiUI
-                    nyanETHPrice={0}
-                    address={address}
-                    userSigner={userSigner}
-                    provider={localProvider}
-                    injectedProvider={injectedProvider}
-                    tx={tx}
-                    farmAddress={farms[farm].farmAddress}
-                    farmName={farms[farm].name}
-                    specialWarning={farms[farm].specialWarning}
-                    hint={farms[farm].hint}
-                    hideDeposit={farms[farm].hideDeposit}
-                    zapperAddress={farms[farm].zapperAddress}
-                  />;
-            case FARMS.PPEGGFARMS:
-              return <RelatedLPFarms
-              address={address}
-              userSigner={userSigner}
-              mainnetProvider={mainnetProvider}
-              localProvider={localProvider}
-              yourLocalBalance={yourLocalBalance}
-              price={price}
-              tx={tx}
-              injectedProvider={injectedProvider}
-              farms={peggFarms}
-              pageName={farms[farm].name}
-              farmsURL={"https://parrotdefi.com/nests"}
-              />;
+        case FARMS.PPEGGFARMS:
+          return <RelatedLPFarms
+            address={address}
+            userSigner={userSigner}
+            mainnetProvider={mainnetProvider}
+            localProvider={localProvider}
+            yourLocalBalance={yourLocalBalance}
+            price={price}
+            tx={tx}
+            injectedProvider={injectedProvider}
+            farms={peggFarms}
+            pageName={farms[farm].name}
+            farmsURL={"https://parrotdefi.com/nests"}
+          />;
         default:
           return <FarmUI
             address={address}
