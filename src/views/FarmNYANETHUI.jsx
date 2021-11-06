@@ -42,6 +42,11 @@ export default function FarmNYANETHUI(props) {
   const farmInstance = useExternalContractLoader(injectedProvider, farmAddress, NyanETHStrategyAbi);
   const tokenAddress = useContractReader({ NYANETHStrategy: farmInstance }, "NYANETHStrategy", "depositToken", []);
 
+
+  const rewardTokenAddress = useContractReader({ NYANETHStrategy: farmInstance }, "NYANETHStrategy", "rewardToken", []);
+  const rewardTokenInstance = useExternalContractLoader(injectedProvider, rewardTokenAddress, ERC20Abi);
+  const rewardSymbol = useContractReader({ ERC20: rewardTokenInstance }, "ERC20", "symbol", []);
+
   ///nyan specific code that wont work for other farms yet
   //const stakingContractAddress = useContractReader({ NyanStrategy: farmInstance }, "NyanStrategy", "stakingContract", []);
   //const stakingContactInstance = useExternalContractLoader(injectedProvider, stakingContractAddress, NyanRewardsContractAbi);
@@ -60,6 +65,7 @@ console.log(`underlying name ${underlyingName}`);
   const approved = useContractReader({ ERC20: tokenInstance }, "ERC20", "allowance", [address, farmAddress]);
 
   const name = useContractReader({ NYANETHStrategy: farmInstance }, "NYANETHStrategy", "name", []);
+  const currentReward = useContractReader({ NYANETHStrategy: farmInstance }, "NYANETHStrategy", "checkReward", []);
   const symbol = useContractReader({ NYANETHStrategy: farmInstance }, "NYANETHStrategy", "symbol", []);
   const totalDeposits = useContractReader({ NYANETHStrategy: farmInstance }, "NYANETHStrategy", "totalDeposits", []);
   const shareBalance = useContractReader({ NYANETHStrategy: farmInstance }, "NYANETHStrategy", "balanceOf", [address]);
@@ -219,6 +225,10 @@ console.log(`underlying name ${underlyingName}`);
   function showShareSymbol() {
     return " $" + (symbol ? symbol : "");
   }
+  
+  function showRewardSymbol() {
+    return " $" + (rewardSymbol ? rewardSymbol : "");
+  }
 
   return (
     <div>
@@ -316,7 +326,9 @@ console.log(`underlying name ${underlyingName}`);
                   }
                 />
 
-
+<p>
+                  Current Reward: {" " + currentReward ? (parseFloat(formatEther(currentReward)).toFixed(6) / 200) : 0} {showRewardSymbol()}
+                </p>
 
                 <Button onClick={() => handleCompound()}>Compound</Button>
 
