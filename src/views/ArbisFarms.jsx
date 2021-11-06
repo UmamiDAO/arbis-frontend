@@ -56,7 +56,8 @@ export default function ArbisFarms({
             address: stARBISETHLPAddress,
             farmName: "ARBIS/ETH Sushi LP",
             earn: "Z2O",
-            isLP: true
+            isLP: true,
+            specialWarning:<>You can get this LP token on <a href="https://app.sushi.com/add/ETH/0x9f20de1fc9b161b34089cbEAE888168B44b03461">Sushi</a></>
         },
 
         {
