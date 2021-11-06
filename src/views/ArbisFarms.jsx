@@ -24,6 +24,7 @@ import ARBISETHStrategy5Address from "../contracts/ARBISETHStrategy5.address";
 import ARBISETHStrategy6Address from "../contracts/ARBISETHStrategy6.address";
 import FarmNYANETHUI from "./FarmNYANETHUI";
 import CHEEMSETHStrategyAddress from "../contracts/CHEEMSETHStrategy.address";
+import stARBISETHLPAddress from "../contracts/stARBISETHLP.address";
 
 
 
@@ -42,10 +43,22 @@ export default function ArbisFarms({
     //props{match.params, provider, userSigner, address, tx}
     const [farm, setFarm] = React.useState(0);
     const farms = [
-       
-        { id: "stARBIS",
-        address: StArbisAddress2 },
-       
+
+        {
+            id: "stARBIS",
+            address: StArbisAddress2,
+            farmName: "ARBIS",
+            earn: "ETH",
+        },
+
+        {
+            id: "stARBISETH SUSHI LP",
+            address: stARBISETHLPAddress,
+            farmName: "ARBIS/ETH Sushi LP",
+            earn: "Z2O",
+            isLP: true
+        },
+
         {
             id: "CHEEMS/ETH",
             name: "CHEEMS/ETH",
@@ -53,9 +66,9 @@ export default function ArbisFarms({
             zapperAddress: ARBISETHSwaprZapperAddress, */
             specialWarning: "",
             hideDeposit: false,
-           },
+        },
 
-       
+
         {
             id: "ARBIS/ETH (epoch 3)(old)",
             name: "ARBIS/ETH (epoch 3)(old)",
@@ -77,7 +90,7 @@ export default function ArbisFarms({
 
         {
             id: "SPELL/ETH Share Rewards",
-            name:  "SPELL/ETH Share Rewards",
+            name: "SPELL/ETH Share Rewards",
             address: SPELLETHArbisRewardsAddress,
             specialWarning: "",
             hint: <>Stake your Arbis SPELL/ETH LP SHARES to earn even more rewards!</>
@@ -85,22 +98,22 @@ export default function ArbisFarms({
 
         {
             id: "MIM/ETH Share Rewards",
-            name:  "MIM/ETH Share Rewards",
+            name: "MIM/ETH Share Rewards",
             address: MIMETHArbisRewardsAddress,
             specialWarning: "",
             hint: <>Stake your Arbis MIM/ETH LP SHARES to earn even more rewards!</>
         }
-       /*  {
-            id: "ARBIS/ETH (OLD)",
-            name: "ARBIS/ETH (OLD, Do not deposit into this)",
-            address: ARBISETHStrategyAddress,
-            specialWarning: "",
-            hideDeposit: true,
-            hint: <>Get this LP token on <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a>
-            <br/>
-            Please withdraw your ARBIS from this fund and re-stake in the new contract
-            </>
-        }, */
+        /*  {
+             id: "ARBIS/ETH (OLD)",
+             name: "ARBIS/ETH (OLD, Do not deposit into this)",
+             address: ARBISETHStrategyAddress,
+             specialWarning: "",
+             hideDeposit: true,
+             hint: <>Get this LP token on <a href="https://swapr.eth.link/#/add/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1/0x9f20de1fc9b161b34089cbeae888168b44b03461?chainId=42161">Swapr</a>
+             <br/>
+             Please withdraw your ARBIS from this fund and re-stake in the new contract
+             </>
+         }, */
     ]
 
     function handleSetFarm(farmid) {
@@ -116,7 +129,7 @@ export default function ArbisFarms({
         const params = useParams();
         console.log("showFarm!");
         console.log("params: ", params);
-        if (farm == 0) {
+        if (farm == 0 || farm == 1) {
             console.log("show  STArbisUI Farm!");
             return <STArbisUI
                 address={address}
@@ -127,34 +140,37 @@ export default function ArbisFarms({
                 farmAddress={farms[farm].address}
                 warning={farms[farm].specialWarning}
                 hideDeposit={farms[farm].hideDeposit}
+                farmName={farms[farm].farmName}
+                earn={farms[farm].earn}
+                isLP={farms[farm].isLP}
             />
-        } else if (farm == 1) {
-           return <FarmNYANETHUI
-            nyanETHPrice={0}
-            address={address}
-            userSigner={userSigner}
-            provider={localProvider}
-            injectedProvider={injectedProvider}
-            tx={tx}
-            farmAddress={farms[farm].address}
-            farmName={"CHEEMS-ETH Strategy"}
-            stakingPoolAddress={STAKING_POOL_ADDRESSES.NYANETH2}
-          />;
+        } else if (farm == 2) {
+            return <FarmNYANETHUI
+                nyanETHPrice={0}
+                address={address}
+                userSigner={userSigner}
+                provider={localProvider}
+                injectedProvider={injectedProvider}
+                tx={tx}
+                farmAddress={farms[farm].address}
+                farmName={"CHEEMS-ETH Strategy"}
+                stakingPoolAddress={STAKING_POOL_ADDRESSES.NYANETH2}
+            />;
         } else if (farm != farms.length) {
             return <FarmLPSushiUI
-        nyanETHPrice={0}
-        address={address}
-        userSigner={userSigner}
-        provider={localProvider}
-        injectedProvider={injectedProvider}
-        tx={tx}
-        farmAddress={farms[farm].address}
-        farmName={farms[farm].name}
-        specialWarning={farms[farm].specialWarning}
-        hint={farms[farm].hint}
-        hideDeposit={farms[farm].hideDeposit}
-        zapperAddress={farms[farm].zapperAddress}
-      />;
+                nyanETHPrice={0}
+                address={address}
+                userSigner={userSigner}
+                provider={localProvider}
+                injectedProvider={injectedProvider}
+                tx={tx}
+                farmAddress={farms[farm].address}
+                farmName={farms[farm].name}
+                specialWarning={farms[farm].specialWarning}
+                hint={farms[farm].hint}
+                hideDeposit={farms[farm].hideDeposit}
+                zapperAddress={farms[farm].zapperAddress}
+            />;
         } else {
             return <p>Interface resetting<br /><ArbiSpinner /></p>
         }
