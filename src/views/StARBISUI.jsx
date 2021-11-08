@@ -325,7 +325,7 @@ export default function STArbisUI(props) {
                 </p>
                 </>:<></>}
                 <p>
-                  Available Z2O:{" " + ethers.utils.formatUnits(availableZ2O ? availableZ2O : "0",18)}
+                  Available Z2O:{" " + ethers.utils.formatUnits(availableZ2O ? availableZ2O : "0",9)}
                 </p>
                 <Button onClick={() => handleCompound()}>Collect All</Button>
                 <Hint

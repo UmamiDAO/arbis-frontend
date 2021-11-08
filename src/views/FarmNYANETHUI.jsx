@@ -263,9 +263,9 @@ console.log(`underlying name ${underlyingName}`);
             <Content className="farm">
               <h1>{farmName}</h1>
               {
-                nyanETHPrice && wethLPBalance && stakingPoolAddress && stakingPoolRewardRate && stakingPoolTotalSupply && lpTotalSupply && (
+                (nyanETHPrice && wethLPBalance && stakingPoolAddress && stakingPoolRewardRate && stakingPoolTotalSupply && lpTotalSupply) ? (
                   <h2>APY: {numberWithCommas((aprToApy(apr())).toFixed(0))}%</h2>
-                ) 
+                ) : <></>
               }
               { !!combinedAPR &&  (
                   <h2>APY: {numberWithCommas(combinedAPR)}%</h2> )}
