@@ -43,7 +43,7 @@ export default function STArbisUI(props) {
   const tokenAddress = useContractReader({ stARBIS: farmInstance }, "stARBIS", "arbisToken", []);
   const Z2OAddress = "0xdb96f8efd6865644993505318cc08ff9c42fb9ac";
   const cheemsAddress = "0x75a2f30929c539e7d4ee033c9331b89f879c0cf7";
-
+  
   console.log(`farmAddress ${farmAddress}`);
 
   const tokenInstance = useExternalContractLoader(injectedProvider, tokenAddress, ERC20Abi);
@@ -65,7 +65,8 @@ export default function STArbisUI(props) {
   const availablewARBIS = useContractReader({ stARBIS: farmInstance }, "stARBIS", "getAvailableTokenRewards", [tokenAddress]);
   const availableZ2O = useContractReader({ stARBIS: farmInstance }, "stARBIS", "getAvailableTokenRewards", [Z2OAddress]);
   const availableCheems = useContractReader({ stARBIS: farmInstance }, "stARBIS", "getAvailableTokenRewards", [cheemsAddress]);
-
+ 
+ 
 
 
   const [loading, setLoading] = React.useState(true);
@@ -323,7 +324,12 @@ export default function STArbisUI(props) {
                 <p>
                   Available Cheems:{" " + formatEther(availableCheems ? availableCheems : "0")}
                 </p>
-                </>:<></>}
+                </>:<>
+                
+                <p>
+                  Available Arbis/ETH LP:{" " + parseFloat(formatEther(availablewARBIS ? availablewARBIS : "0")).toFixed(4)}
+                </p>
+                </>}
                 <p>
                   Available Z2O:{" " + ethers.utils.formatUnits(availableZ2O ? availableZ2O : "0",9)}
                 </p>
