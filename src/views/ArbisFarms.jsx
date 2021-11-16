@@ -59,11 +59,19 @@ export default function ArbisFarms({
             isLP: true,
             specialWarning:<>You can get this LP token on <a href="https://app.sushi.com/add/ETH/0x9f20de1fc9b161b34089cbEAE888168B44b03461">Sushi</a></>
         },
-
+        
         {
-            id: "CHEEMS/ETH",
-            name: "CHEEMS/ETH",
+            id: "CHEEMS/ETH (old)",
+            name: "CHEEMS/ETH (old)",
             address: CHEEMSETHStrategyAddress,/* zapper is not working
+            zapperAddress: ARBISETHSwaprZapperAddress, */
+            specialWarning: "This pool is no longer compounding please move to the new one",
+            hideDeposit: false,
+        },
+        {
+            id: "CHEEMS/ETH 2",
+            name: "CHEEMS/ETH 2",
+            address: "0xc5d444bB53DA60574Dd272Ebab609Efa6a483c57",/* zapper is not working
             zapperAddress: ARBISETHSwaprZapperAddress, */
             specialWarning: "",
             hideDeposit: false,
@@ -114,7 +122,7 @@ export default function ArbisFarms({
                 earn={farms[farm].earn}
                 isLP={farms[farm].isLP}
             />
-        } else if (farm == 2) {
+        } else if (farm == 2 || farm == 3) {
             return <FarmNYANETHUI
                 nyanETHPrice={0}
                 address={address}

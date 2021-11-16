@@ -104,6 +104,6 @@
     "ship": "yarn surge",
     "theme": "npx gulp less",
     "watch": "node ./scripts/watch.js",
-    "deploy": "./node_modules/.bin/gh-pages -d build"
+    "deploy": "yarn build && gh-pages -d build"
   }
 }
