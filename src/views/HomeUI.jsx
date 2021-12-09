@@ -91,7 +91,7 @@ export default function CreateUI({
       window.open('https://arbicheems.finance');
     }
     else if (index == 1) {
-      window.open('https://zerotwohm.finance');
+      window.open('https://umami.finance');
 
     }
     else {}
@@ -132,7 +132,7 @@ export default function CreateUI({
             
             <h2>Projects</h2>
             <p><a href="#">Arbi's</a> - Autocompounders for most yield opportunities on Arbitrum. Stake now to maximize yields and save time.</p>
-            <p><a href="https://zerotwohm.finance">ZeroTwOhm</a> - The first decentralized reserve currency protocol natively built on the Arbitrum One Network.</p>
+            <p><a href="https://umami.finance">Umami</a> - The first decentralized reserve currency protocol natively built on the Arbitrum One Network. (AKA ZeroTwOhm)</p>
             <p><a href="https://arbicheems.finance">ArbiCheems</a> - A simple, highly deflationary, meme coin. Stake your assets and receive the CHEEMS token.</p>
             <p><a href="https://cheemshole.arbicheems.finance">CheemsHole</a> - A winner takes all degen gambling game for CHEEMS, a revised version of Blackhole.</p>
             
