@@ -212,7 +212,8 @@ export const FARMS = Object.freeze({
   HONEYUSDC: "honey/usdc",
   HONEYADOGE: "honey/adoge",
   SPELLETHRewards: "SPELL/ETH Share Rewards",
-  MIMETHRewards: "MIM/ETH Share Rewards"
+  MIMETHRewards: "MIM/ETH Share Rewards",
+  GOHMETH: "gohm/eth"
 });
 
 import NyanStakingPoolAddress from "./contracts/NyanStakingPool.address";
@@ -251,6 +252,7 @@ import ARBISETHStrategy5Address from "./contracts/ARBISETHStrategy5.address";
 import ARBISETHStrategy6Address from "./contracts/ARBISETHStrategy6.address";
 import SPELLETHArbisRewardsAddress from "./contracts/SPELLETHArbisRewards.address";
 import MIMETHArbisRewardsAddress from "./contracts/MIMETHArbisRewards.address";
+import GOHMETHSTRATEGYAddress from "./contracts/GOHMETHSTRATEGY.address";
 
 export const STAKING_POOL_ADDRESSES = Object.freeze({
   NYAN: NyanStakingPoolAddress,
@@ -321,6 +323,11 @@ export const sushiFarms = [
     id: FARMS.SPELLETH,
     name: "SPELL-ETH Strategy",
     address: SPELLETHStrategyAddress
+  },
+  {
+    id: FARMS.GOHMETH,
+    name: "gOHM-ETH Strategy",
+    address: GOHMETHSTRATEGYAddress
   }
 
 ]
