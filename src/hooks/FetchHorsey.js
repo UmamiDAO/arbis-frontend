@@ -7,9 +7,13 @@ const FetchHorsey = (addressIn) => {
     let horseyFetch = await fetch('https://horseysauce.xyz');
 
     horseyFetch = await horseyFetch.json();
+    if (addressIn == "stArbis")
+    {setHorsey(horseyFetch.stArbis)} else{
     const horseyStrategy = horseyFetch.strategies.find(({ address }) => 
     address === addressIn );
     setHorsey(horseyStrategy);
+    }
+    
    }, []);
    return horsey;
 }
