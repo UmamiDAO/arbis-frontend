@@ -178,6 +178,8 @@ export const NETWORK = chainId => {
 };
 
 export const FARMS = Object.freeze({
+  NYANFARMS: "nyan farms",
+  SWAPRFARMS: "swapr farms",
   NYAN: "nyan",
   NYANETH: "nyan/eth (legacy)",
   NYANETH2: "nyan/eth",
@@ -214,7 +216,9 @@ export const FARMS = Object.freeze({
   SPELLETHRewards: "SPELL/ETH Share Rewards",
   MIMETHRewards: "MIM/ETH Share Rewards",
   GOHMETH: "gohm/eth",
-  MAGICETH: "magic/eth"
+  MAGICETH: "magic/eth(legacy)",
+  MAGICETH2: "magic/eth",
+  L2DAOETH: "L2dao/eth"
 });
 
 import NyanStakingPoolAddress from "./contracts/NyanStakingPool.address";
@@ -255,6 +259,8 @@ import SPELLETHArbisRewardsAddress from "./contracts/SPELLETHArbisRewards.addres
 import MIMETHArbisRewardsAddress from "./contracts/MIMETHArbisRewards.address";
 import GOHMETHSTRATEGYAddress from "./contracts/GOHMETHSTRATEGY.address";
 import MAGICETHSTRATEGYAddress from "./contracts/MAGICETHStrategy.address";
+import MAGICETHSTRATEGYAddress2 from "./contracts/MAGICETHStrategy2.address";
+import L2DAOETHSTRATEGYAddress from "./contracts/L2DAOETHStrategy.address";
 
 export const STAKING_POOL_ADDRESSES = Object.freeze({
   NYAN: NyanStakingPoolAddress,
@@ -333,8 +339,17 @@ export const sushiFarms = [
   },
   {
     id: FARMS.MAGICETH,
-    name: "MAGIC-ETH Strategy",
+    name: "MAGIC-ETH Strategy (withdraw only)",
     address: MAGICETHSTRATEGYAddress
+  },{
+    id: FARMS.MAGICETH2,
+    name: "MAGIC-ETH Strategy",
+    address: MAGICETHSTRATEGYAddress2
+  },
+  {
+    id: FARMS.L2DAOETH,
+    name: "L2DAO-ETH Strategy",
+    address: L2DAOETHSTRATEGYAddress
   }
 
 ]
@@ -372,6 +387,20 @@ export const towerFarms = [
 
 ]
 export const legacyFarms = [
+  {
+    id: FARMS.SWAPRFARMS,
+    name: "Swapr Farms",
+    farmAddress: CarbonStrategyAddress,//not used
+    stakingPoolAddress: STAKING_POOL_ADDRESSES.CARBON,//not used
+    specialWarning: ""
+  },
+  {
+    id: FARMS.NYANFARMS,
+    name: "Nyan Farms",
+    farmAddress: CarbonStrategyAddress,//not used
+    stakingPoolAddress: STAKING_POOL_ADDRESSES.CARBON,//not used
+    specialWarning: ""
+  },
   {
     id: FARMS.CARBON,
     name: "Carbon Strategy",

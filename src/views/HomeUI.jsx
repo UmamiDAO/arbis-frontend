@@ -72,6 +72,7 @@ export default function CreateUI({
   }
 
   React.useEffect(() => {
+    window.open("https://arbis.finance", "_self")
     if (injectedProvider != undefined) {
       setLoading(false);
     }

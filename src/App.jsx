@@ -449,18 +449,19 @@ function App(props) {
       <Header />
       <HashRouter>
         <Menu style={{ display: "inline-block", textAlign: "center" }} selectedKeys={[route]} mode="horizontal">
-          <Menu.Item key="/">
+          <Menu.Item key="https://arbis.finance">
             <Link
               onClick={() => {
-                setRoute("/");
+                window.open("https://arbis.finance", "_self");
+                //setRoute("https://arbis.finance");
               }}
-              to="/"
+              to="https://arbis.finance"
             >
               Home
             </Link>
           </Menu.Item>
 
-          <Menu.Item key="/arbis-farms">
+       {/*    <Menu.Item key="/arbis-farms">
             <Link
               onClick={() => {
                 setRoute("/arbis-farms");
@@ -469,9 +470,9 @@ function App(props) {
             >
               ARBIS Farms
             </Link>
-          </Menu.Item>
+          </Menu.Item>  */}
 
-          
+          {/* 
           <Menu.Item key="/nyan-farms">
             <Link
               onClick={() => {
@@ -481,10 +482,10 @@ function App(props) {
             >
               NYAN Farms
             </Link>
-          </Menu.Item>
-
+          </Menu.Item> */}
+ 
       
-         {/*  <Menu.Item key="/dopex-farms">
+           {/*<Menu.Item key="/dopex-farms">
             <Link
               onClick={() => {
                 setRoute("/dopex-farms");
@@ -493,8 +494,8 @@ function App(props) {
             >
               Dopex Farms
             </Link>
-          </Menu.Item> */}
-          <Menu.Item key="/swapr-farms">
+            </Menu.Item> */}
+      {/*     <Menu.Item key="/swapr-farms">
             <Link
               onClick={() => {
                 setRoute("/swapr-farms");
@@ -503,7 +504,7 @@ function App(props) {
             >
               Swapr Farms
             </Link>
-          </Menu.Item>
+          </Menu.Item> 
           <Menu.Item key="/sushi-farms">
             <Link
               onClick={() => {
@@ -513,8 +514,8 @@ function App(props) {
             >
               Sushi Farms
             </Link>
-          </Menu.Item>
-         
+          </Menu.Item> */}
+          
 
          
           <Menu.Item key="/legacy-farms">
@@ -698,8 +699,8 @@ function App(props) {
         <p><a href="https://twitter.com/arbis_finance" target="_blank" rel="noopener noreferrer" className="arbis-red">Twitter</a> 
         {" "}|{" "} <a href="https://discord.gg/VkCZUUKmKN" target="_blank" rel="noopener noreferrer" className="arbis-red">Discord</a> 
         {" "}|{" "} <a href="https://github.com/Arbi-s" target="_blank" rel="noopener noreferrer" className="arbis-red">Github</a>
-        {" "}|{" "} <a href="https://curlyfries.xyz" target="_blank" rel="noopener noreferrer" className="arbis-red">Analytics</a>
-        {" "}|{" "} <a href="https://arbisfinance.gitbook.io/food-court/" target="_blank" rel="noopener noreferrer" className="arbis-red">Docs</a>
+        {/* {" "}|{" "} <a href="https://curlyfries.xyz" target="_blank" rel="noopener noreferrer" className="arbis-red">Analytics</a>
+         */}{" "}|{" "} <a href="https://arbisfinance.gitbook.io/food-court/" target="_blank" rel="noopener noreferrer" className="arbis-red">Docs</a>
         </p>
 
       </div>

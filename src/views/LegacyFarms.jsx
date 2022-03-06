@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Row, Button } from "antd";
-import { FARMS, peggFarms, STAKING_POOL_ADDRESSES } from "../constants";
+import { FARMS, peggFarms, STAKING_POOL_ADDRESSES, swaprFarms } from "../constants";
 import FarmUI from "./FarmUI";
 import CarbonStrategyAddress from "../contracts/CarbonStrategy.address";
 import PongStrategyAddress from "../contracts/PongStrategy.address";
@@ -15,6 +15,8 @@ import STArbisUI from "./StARBISUI";
 import FarmLPSushiUI from "./FarmLPSushiUI";
 import RelatedLPFarms from "./RelatedLPFarms";
 
+import NyanFarms from "./NyanFarms";
+
 
 
 export default function LegacyFarms({
@@ -27,6 +29,8 @@ export default function LegacyFarms({
   price,
   tx,
   writeContracts,
+  readContracts,
+  purpose,
   injectedProvider,
   farms,
 
@@ -49,6 +53,39 @@ export default function LegacyFarms({
     console.log("params: ", params);
     if (farm != farms.length) {
       switch (farms[farm].id) {
+        case FARMS.SWAPRFARMS:
+          return  <RelatedLPFarms
+          address={address}
+          userSigner={userSigner}
+          mainnetProvider={mainnetProvider}
+          localProvider={localProvider}
+          yourLocalBalance={yourLocalBalance}
+          price={0}
+          tx={tx}
+          writeContracts={writeContracts}
+          readContracts={readContracts}
+          purpose={purpose}
+          setPurposeEvents={setPurposeEvents}
+          injectedProvider={injectedProvider}
+          farms={swaprFarms}
+          pageName={"Swapr Farms"}
+          farmsURL={"https://swapr.eth.link/#/pools?chainId=42161"}
+        />;
+        case FARMS.NYANFARMS:
+          return <NyanFarms
+          nyanETHPrice={0}
+          address={address}
+          userSigner={userSigner}
+          mainnetProvider={mainnetProvider}
+          localProvider={localProvider}
+          yourLocalBalance={yourLocalBalance}
+          price={0}
+          tx={tx}
+          writeContracts={writeContracts}
+          readContracts={readContracts}
+          purpose={purpose}
+          setPurposeEvents={setPurposeEvents}
+          injectedProvider={injectedProvider} />;
         case FARMS.NYANETH:
           return <FarmNYANETHUI
             nyanETHPrice={0}
@@ -310,6 +347,7 @@ export default function LegacyFarms({
         </Row>
 
       </div>
+      <hr/>
       {showFarm()}
     </div>
   );

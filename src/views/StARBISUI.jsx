@@ -46,7 +46,6 @@ export default function STArbisUI(props) {
   const umamiAddress = "0x1622bF67e6e5747b81866fE0b85178a93C7F86e3";
   const cheemsAddress = "0x75a2f30929c539e7d4ee033c9331b89f879c0cf7";
   
-  console.log(`farmAddress ${farmAddress}`);
 
   const tokenInstance = useExternalContractLoader(injectedProvider, tokenAddress, ERC20Abi);
 
